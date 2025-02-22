@@ -57,6 +57,7 @@
             this.peopleToolStripMenuItem.Name = "peopleToolStripMenuItem";
             this.peopleToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.peopleToolStripMenuItem.Text = "People";
+            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
             // 
             // frmMain
             // 

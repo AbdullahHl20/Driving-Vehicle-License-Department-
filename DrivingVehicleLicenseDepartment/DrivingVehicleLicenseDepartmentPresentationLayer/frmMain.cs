@@ -16,5 +16,12 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         {
             InitializeComponent();
         }
+
+        private void peopleToolStripMenuItem_Click(object sender , EventArgs e)
+        {
+            frmMangePeople frmMangePeople = new frmMangePeople();
+
+            frmMangePeople.ShowDialog();
+        }
     }
 }
