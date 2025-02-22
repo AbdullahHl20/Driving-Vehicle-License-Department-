@@ -9,7 +9,18 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
         public clsPerson()
         {
-            
+            this.NationalNo = "";
+            this.FirstName = "";
+            this.ThirdName = "";
+            this.LastName = "";
+            this.DateOfBirth = DateTime.Now;
+            this.Gendor = 0;
+            this.Phone = "";
+            this.Email = "";
+            this.NationalityCountryID = 0;
+            this.ImagePath = "";
+            SaveMode = enSaveMode.Add;
+
         } 
         public clsPerson(string NationalNo , string FirstName, string  SecondName, string ThirdName,
            string LastName, DateTime DateOfBirth, byte Gendor, string Phone ,
@@ -23,13 +34,13 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
             this.Gendor = Gendor;
             this.Phone = Phone;
             this.Email = Email;
-            this.DateOfBirth = DateOfBirth;
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
-            
+            SaveMode = enSaveMode.Update;
+
         }
         public int PersonId { get; set; }
-        public enSaveMode saveMode { get; set; }
+        public enSaveMode SaveMode { get; set; }
 
         public string NationalNo { get; set; }
         public string FirstName { get; set; }
@@ -42,7 +53,6 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
-        
         
 
 
