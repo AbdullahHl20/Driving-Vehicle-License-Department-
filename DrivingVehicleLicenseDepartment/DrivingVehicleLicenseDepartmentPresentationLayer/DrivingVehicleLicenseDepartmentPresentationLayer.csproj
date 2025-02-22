@@ -78,7 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayerDrivingVehicleLicenseDepartment\BusinessLayerDrivingVehicleLicenseDepartment.csproj">
-      <Project>{7f830e19-5a6f-4f5e-b9be-129454e82c82}</Project>
+      <Project>{7dedefb4-ea42-42ea-afdc-d135b410ed69}</Project>
       <Name>BusinessLayerDrivingVehicleLicenseDepartment</Name>
     </ProjectReference>
   </ItemGroup>
