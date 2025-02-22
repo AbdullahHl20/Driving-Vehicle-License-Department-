@@ -1,5 +1,9 @@
-﻿namespace BusinessLayerDrivingVehicleLicenseDepartment
+﻿using System;
+
+namespace BusinessLayerDrivingVehicleLicenseDepartment
 {
+
+     public enum enSaveMode { Add , Update }
     public class clsPerson
     {
 
@@ -9,7 +13,7 @@
         } 
         public clsPerson(string NationalNo , string FirstName, string  SecondName, string ThirdName,
            string LastName, DateTime DateOfBirth, byte Gendor, string Phone ,
-           string  Email, int NationalityCountryID, string? ImagePath)
+           string  Email, int NationalityCountryID, string ImagePath)
         {
             this.NationalNo = NationalNo;
             this.FirstName = FirstName;
@@ -25,18 +29,19 @@
             
         }
         public int PersonId { get; set; }
+        public enSaveMode saveMode { get; set; }
 
-        public string? NationalNo { get; set; }
-        public string? FirstName { get; set; }
-        public string? SecondName { get; set; }
-        public string? ThirdName { get; set; }
-        public string? LastName { get; set; }
+        public string NationalNo { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string ThirdName { get; set; }
+        public string LastName { get; set; }
         public DateTime  DateOfBirth { get; set; }
         public byte Gendor { get; set; }
-        public string? Phone { get; set; }
-        public string? Email { get; set; }
-        public int? NationalityCountryID { get; set; }
-        public string? ImagePath { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public int NationalityCountryID { get; set; }
+        public string ImagePath { get; set; }
         
         
 
