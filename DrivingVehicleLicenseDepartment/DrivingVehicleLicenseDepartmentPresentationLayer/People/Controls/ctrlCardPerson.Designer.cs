@@ -1,6 +1,6 @@
 ﻿namespace DrivingVehicleLicenseDepartmentPresentationLayer
 {
-    partial class ctrlAddEditPerson
+    partial class ctrlCardPerson
     {
         /// <summary> 
         /// Required designer variable.

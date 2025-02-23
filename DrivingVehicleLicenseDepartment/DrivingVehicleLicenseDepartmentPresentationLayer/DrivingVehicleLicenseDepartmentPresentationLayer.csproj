@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ctrlAddEditPerson.cs">
+    <Compile Include="People\Controls\ctrlCardPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlAddEditPerson.Designer.cs">
-      <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
+    <Compile Include="People\Controls\ctrlCardPerson.Designer.cs">
+      <DependentUpon>ctrlCardPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -64,16 +64,25 @@
     <Compile Include="frmMangePeople.Designer.cs">
       <DependentUpon>frmMangePeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\frmAddUpdatePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmAddUpdatePerson.Designer.cs">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctrlAddEditPerson.resx">
-      <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
+    <EmbeddedResource Include="People\Controls\ctrlCardPerson.resx">
+      <DependentUpon>ctrlCardPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMangePeople.resx">
       <DependentUpon>frmMangePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,9 +125,7 @@
   <ItemGroup>
     <None Include="Resources\new-1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="People\Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Country 32.png" />
   </ItemGroup>

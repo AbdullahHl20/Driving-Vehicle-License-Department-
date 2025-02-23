@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace DrivingVehicleLicenseDepartmentPresentationLayer
 {
-    public partial class ctrlAddEditPerson : UserControl
+    public partial class ctrlCardPerson : UserControl
     {
 
         private clsPerson _Person;
-        public ctrlAddEditPerson()
+        public ctrlCardPerson()
         {
             InitializeComponent();
         }
