@@ -81,12 +81,14 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
 
         private void llSetImage_LinkClicked(object sender , LinkLabelLinkClickedEventArgs e)
         {
-            openFileDialog1.Filter = "(*.*) ";
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bm";
             openFileDialog1.Title = " Choics Image";
-            openFileDialog1.ShowDialog(this);
-            _Person.ImagePath = openFileDialog1.FileName;
-            if( openFileDialog1.FileName != null )
-                pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            { 
+                pbPersonImage.Load(openFileDialog1.FileName);
+                _Person.ImagePath = openFileDialog1.FileName;
+           
+            }
         }
 
         private void handelTextValid_TextChanged(object sender , EventArgs e)
