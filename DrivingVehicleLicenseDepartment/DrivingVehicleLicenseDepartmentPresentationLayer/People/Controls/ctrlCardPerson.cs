@@ -16,6 +16,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
     {
 
         private clsPerson _Person;
+        private clsCountry _Country;
         public ctrlCardPerson()
         {
             InitializeComponent();
@@ -36,7 +37,9 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             lblPhone.Text = defultvalue;
             lblAddress.Text = defultvalue;
             lblGendor.Text = defultvalue;
-            
+            lblDateOfBirth.Text = defultvalue;
+            lblCountry.Text = defultvalue;
+            llEditPersonInfo.Enabled = false;
         }
         public void _FillPersonInfo()
         {
@@ -47,7 +50,12 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             lblAddress.Text = _Person.Phone;
             lblGendor.Text = _Person.Gendor == 0 ? "Male" : "Female";
             lblNationalNo.Text = _Person.NationalNo;
+            lblDateOfBirth.Text = _Person.DateOfBirth.ToString();
             lblPersonID.Text = Convert.ToString( _Person.PersonId);
+            llEditPersonInfo.Enabled = true;
+            lblCountry.Text = _Country.CountryName;
+            if ( !string.IsNullOrEmpty(_Person.ImagePath) )
+                pbPersonImage.Load(_Person.ImagePath);
         }
         public void LoadPersonInfo(string NationalNo)
         {
@@ -58,6 +66,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
                 MessageBox.Show("No Person with National No. = " + NationalNo.ToString() , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                 return;
             }
+            _Country = clsCountry.Find(_Person.NationalityCountryID);
 
             _FillPersonInfo();
         }

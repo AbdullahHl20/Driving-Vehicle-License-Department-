@@ -10,13 +10,41 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 {
     public class clsCountryData
     {
+        public static bool Find( int CountryId , ref string CountryName)
+        {
+            bool isFound = false;
 
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Countries WHERE CountryId = @CountryId";
+
+            SqlCommand command = new SqlCommand(query , connection);
+
+            command.Parameters.AddWithValue("@CountryId" , CountryId);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    CountryName = reader["CountryName"].ToString();
+                    return true;
+                }
+              return isFound;
+
+            }
+            catch 
+            {
+                return isFound;
+            }
+        }
         public static DataTable GetAllCountries()
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string selectQuery = "select * from Countries";
-            SqlCommand cmd = new SqlCommand(selectQuery, sqlConnection);
+            SqlCommand cmd = new SqlCommand(selectQuery , sqlConnection);
 
             try
             {
@@ -30,7 +58,7 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
                 return dt;
 
             }
-            catch (Exception ex)
+            catch ( Exception ex )
             {
                 return null;
             }

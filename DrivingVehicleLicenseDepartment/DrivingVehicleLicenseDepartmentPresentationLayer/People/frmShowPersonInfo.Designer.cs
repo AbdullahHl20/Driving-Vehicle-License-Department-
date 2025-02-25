@@ -45,7 +45,7 @@
             this.ClientSize = new System.Drawing.Size(1001, 366);
             this.Controls.Add(this.ctrlCardPerson1);
             this.Name = "frmShowPersonInfo";
-            this.Text = "frmShowPersonInfo";
+            this.Text = "تفاصيل الشخص";
             this.ResumeLayout(false);
 
         }
