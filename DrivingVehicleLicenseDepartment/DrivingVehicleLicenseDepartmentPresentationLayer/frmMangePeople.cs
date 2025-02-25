@@ -42,9 +42,15 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         private void txtFilteredValue_TextChanged(object sender , EventArgs e)
         {
             dv.RowFilter = "";
+            if (comboBox1.SelectedIndex == 1)
+            {
+                if (txtFilteredValue.Text != string.Empty)
+                    dv.RowFilter = (string)comboBox1.SelectedItem.ToString() + "=" + "\'" + txtFilteredValue.Text + "\'";
+            }
+            else
+              if (txtFilteredValue.Text != string.Empty)
+                dv.RowFilter = string.Format("{0} like '%{1}%'", comboBox1.SelectedItem.ToString(), txtFilteredValue.Text); 
 
-            if ( txtFilteredValue.Text != string.Empty )
-                dv.RowFilter = (string)comboBox1.SelectedItem.ToString() + "=" + "\'" +txtFilteredValue.Text + "\'";
             SetRecordCount(dataGridView1.RowCount);
         }
 
