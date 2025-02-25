@@ -37,11 +37,15 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.txtFilteredValue = new System.Windows.Forms.TextBox();
             this.lblRecordCount = new System.Windows.Forms.Label();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.toolStripShowdetails = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripEditPerson = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripCall = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSendMail = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,19 +80,23 @@
             this.toolStripsp,
             this.toolStripAddNewPerson,
             this.toolStripSeparator1,
-            this.toolStripEditPerson});
+            this.toolStripEditPerson,
+            this.toolStripDelete,
+            this.toolStripSeparator2,
+            this.toolStripCall,
+            this.toolStripSendMail});
             this.gridContextMenu.Name = "gridContextMenu";
-            this.gridContextMenu.Size = new System.Drawing.Size(184, 94);
+            this.gridContextMenu.Size = new System.Drawing.Size(215, 206);
             // 
             // toolStripsp
             // 
             this.toolStripsp.Name = "toolStripsp";
-            this.toolStripsp.Size = new System.Drawing.Size(180, 6);
+            this.toolStripsp.Size = new System.Drawing.Size(211, 6);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(180, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
             // 
             // comboBox1
             // 
@@ -117,6 +125,11 @@
             this.lblRecordCount.TabIndex = 6;
             this.lblRecordCount.Text = "label2";
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(211, 6);
+            // 
             // btnAddNewPerson
             // 
             this.btnAddNewPerson.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.new_1;
@@ -133,7 +146,7 @@
             // 
             this.toolStripShowdetails.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.PersonDetails_32;
             this.toolStripShowdetails.Name = "toolStripShowdetails";
-            this.toolStripShowdetails.Size = new System.Drawing.Size(183, 26);
+            this.toolStripShowdetails.Size = new System.Drawing.Size(214, 26);
             this.toolStripShowdetails.Text = "Showdetails";
             this.toolStripShowdetails.Click += new System.EventHandler(this.toolStripShowdetails_Click);
             // 
@@ -141,7 +154,7 @@
             // 
             this.toolStripAddNewPerson.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Person_321;
             this.toolStripAddNewPerson.Name = "toolStripAddNewPerson";
-            this.toolStripAddNewPerson.Size = new System.Drawing.Size(183, 26);
+            this.toolStripAddNewPerson.Size = new System.Drawing.Size(214, 26);
             this.toolStripAddNewPerson.Text = "AddNewPerson";
             this.toolStripAddNewPerson.Click += new System.EventHandler(this.toolStripAddNewPerson_Click);
             // 
@@ -149,9 +162,23 @@
             // 
             this.toolStripEditPerson.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.edit_32;
             this.toolStripEditPerson.Name = "toolStripEditPerson";
-            this.toolStripEditPerson.Size = new System.Drawing.Size(183, 26);
+            this.toolStripEditPerson.Size = new System.Drawing.Size(214, 26);
             this.toolStripEditPerson.Text = "EditPerson";
             this.toolStripEditPerson.Click += new System.EventHandler(this.toolStripEditPerson_Click);
+            // 
+            // toolStripCall
+            // 
+            this.toolStripCall.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.call_32;
+            this.toolStripCall.Name = "toolStripCall";
+            this.toolStripCall.Size = new System.Drawing.Size(214, 26);
+            this.toolStripCall.Text = "Call";
+            // 
+            // toolStripSendMail
+            // 
+            this.toolStripSendMail.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.send_email_32;
+            this.toolStripSendMail.Name = "toolStripSendMail";
+            this.toolStripSendMail.Size = new System.Drawing.Size(214, 26);
+            this.toolStripSendMail.Text = "SendMail";
             // 
             // pictureBox1
             // 
@@ -163,6 +190,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // toolStripDelete
+            // 
+            this.toolStripDelete.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Delete_User_32;
+            this.toolStripDelete.Name = "toolStripDelete";
+            this.toolStripDelete.Size = new System.Drawing.Size(214, 26);
+            this.toolStripDelete.Text = "Delete";
             // 
             // frmMangePeople
             // 
@@ -203,5 +237,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripAddNewPerson;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripEditPerson;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripCall;
+        private System.Windows.Forms.ToolStripMenuItem toolStripSendMail;
+        private System.Windows.Forms.ToolStripMenuItem toolStripDelete;
     }
 }

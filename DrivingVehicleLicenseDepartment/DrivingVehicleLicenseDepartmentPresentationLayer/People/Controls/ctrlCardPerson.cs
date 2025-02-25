@@ -50,7 +50,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             lblAddress.Text = _Person.Phone;
             lblGendor.Text = _Person.Gendor == 0 ? "Male" : "Female";
             lblNationalNo.Text = _Person.NationalNo;
-            lblDateOfBirth.Text = _Person.DateOfBirth.ToString();
+            lblDateOfBirth.Text = _Person.DateOfBirth.ToString("dd/MM//yyyy");
             lblPersonID.Text = Convert.ToString( _Person.PersonId);
             llEditPersonInfo.Enabled = true;
             lblCountry.Text = _Country.CountryName;

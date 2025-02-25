@@ -112,8 +112,8 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             if ( File.Exists(_Person.ImagePath) )
                 File.Delete(_Person.ImagePath);
 
-            string path = _Person.ImagePath;
-            path = path.Replace(_Person.ImagePath , @"C:\CDVLD-People-Images\" + imagename + openFileDialog1.FileName.Substring(openFileDialog1.FileName.Length - 4 , 4));
+            string path = _Person.ImagePath == ""? openFileDialog1.FileName : _Person.ImagePath;
+            path = path.Replace(path , @"C:\DVLD-People-Images\" + imagename + openFileDialog1.FileName.Substring(openFileDialog1.FileName.Length - 4 , 4));
             File.Copy(openFileDialog1.FileName , path);
             _Person.ImagePath = path;
         }
