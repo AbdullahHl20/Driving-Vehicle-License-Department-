@@ -1,4 +1,5 @@
 ﻿using BusinessLayerDrivingVehicleLicenseDepartment;
+using DrivingVehicleLicenseDepartmentPresentationLayer.People;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,6 +58,13 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         public void SetRecordCount(int recoredCount)
         {
             lblRecordCount.Text = $"Records = {recoredCount - 1 }" ;
+        }
+
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePerson frmAddUpdatePerson=  new frmAddUpdatePerson();
+
+            frmAddUpdatePerson.ShowDialog();
         }
     }
 }
