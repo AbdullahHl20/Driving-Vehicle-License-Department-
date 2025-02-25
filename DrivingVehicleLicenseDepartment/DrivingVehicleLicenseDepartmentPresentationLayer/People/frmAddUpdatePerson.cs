@@ -28,18 +28,24 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
 
         private void FillDataFromUI() 
         {
-            _Person.NationalNo = txtNationalNo.Text ; 
-            _Person.FirstName = txtFirstName.Text ;
+            _Person.NationalNo = txtNationalNo.Text; 
+            _Person.FirstName = txtFirstName.Text;
             _Person.SecondName = txtSecondName.Text;
             _Person.ThirdName = txtThirdName.Text;
             _Person.LastName = txtLastName.Text ; 
-            _Person.Email = txtEmail.Text ;
-            _Person.Phone = txtPhone.Text ;
-             
-            
-        
+            _Person.Email = txtEmail.Text;
+            _Person.Phone = txtPhone.Text;
+            _Person.Address = txtAddress.Text;
+            _Person.Gendor =  Convert.ToInt16(rbFemale.Checked);
+
+            _Person.NationalityCountryID = cbCountry.SelectedIndex;
+
+
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
