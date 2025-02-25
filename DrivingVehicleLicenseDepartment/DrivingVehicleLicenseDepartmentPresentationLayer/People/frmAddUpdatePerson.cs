@@ -18,6 +18,11 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
         public frmAddUpdatePerson()
         {
             InitializeComponent();
+
+            DataView dv = clsCountry.GetAllCountries().DefaultView;
+            foreach (DataRow dataRow in dv.Table.Rows)
+                cbCountry.Items.Add(dataRow["CountryName"].ToString());
+         
         }
 
 
