@@ -116,6 +116,7 @@
             this.llEditPersonInfo.TabIndex = 167;
             this.llEditPersonInfo.TabStop = true;
             this.llEditPersonInfo.Text = "Edit Person Info";
+            this.llEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditPersonInfo_LinkClicked);
             // 
             // lblCountry
             // 
@@ -409,12 +410,12 @@
             this.pbPersonImage.TabIndex = 140;
             this.pbPersonImage.TabStop = false;
             // 
-            // ctrlAddEditPerson
+            // ctrlCardPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "ctrlAddEditPerson";
+            this.Name = "ctrlCardPerson";
             this.Size = new System.Drawing.Size(994, 332);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

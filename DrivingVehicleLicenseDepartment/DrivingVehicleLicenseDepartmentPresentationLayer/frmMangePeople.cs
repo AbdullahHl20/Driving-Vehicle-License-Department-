@@ -83,6 +83,13 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
 
         private void toolStripShowdetails_Click(object sender , EventArgs e)
         {
+            frmShowPersonInfo frmShowPersonInfo = new frmShowPersonInfo(dataGridView1.CurrentRow.Cells["NationalNo"].Value.ToString());
+
+            frmShowPersonInfo.ShowDialog();
+        }
+
+        private void toolStripEditPerson_Click(object sender , EventArgs e)
+        {
             frmAddUpdatePerson frmAddUpdatePerson = new frmAddUpdatePerson(dataGridView1.CurrentRow.Cells["NationalNo"].Value.ToString());
 
             frmAddUpdatePerson.ShowDialog();

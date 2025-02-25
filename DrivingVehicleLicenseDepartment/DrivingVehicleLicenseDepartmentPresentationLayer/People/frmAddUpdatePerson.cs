@@ -42,7 +42,14 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
                 cbCountry.Items.Add(dataRow["CountryName"].ToString());
         }
 
+        private void _handelDefulatImage()
+        {
+            if ( !IsUserImageEmpty() )
+                return;
+            string imagePath = rbMale.Checked ? @"..\..\Images\Male 512" : @"..\..\Images\Female 512";
 
+            pbPersonImage.Load(imagePath + ".png");
+        }
         private void _FillDataFromUI()
         {
             _Person.NationalNo = txtNationalNo.Text;
@@ -54,10 +61,14 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             _Person.Phone = txtPhone.Text;
             _Person.Address = txtAddress.Text;
             _Person.NationalityCountryID = cbCountry.SelectedIndex;
-            
+
 
         }
 
+        private bool IsUserImageEmpty()
+        {
+            return (_Person.ImagePath == null && string.IsNullOrEmpty(_Person.ImagePath) || _Person.ImagePath == "");
+        }
         private void _FillUIFromData()
         {
             txtNationalNo.Text = _Person.NationalNo;
@@ -69,7 +80,18 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             txtPhone.Text = _Person.Phone;
             txtAddress.Text = _Person.Phone;
             cbCountry.SelectedIndex = _Person.NationalityCountryID;
-            pbPersonImage.Load(_Person.ImagePath);
+
+            if ( _Person.Gendor != 0 )
+                rbFemale.Checked = true;
+            else
+                rbMale.Checked = true;
+
+            if ( !IsUserImageEmpty() )
+                pbPersonImage.Load(_Person.ImagePath);
+            else
+            {
+                _handelDefulatImage();
+            }
 
         }
 
@@ -77,22 +99,22 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
         {
 
             _FillDataFromUI();
-            if (_Person.Save())
+            if ( _Person.Save() )
             {
                 _FillUIFromData();
             }
         }
 
-        private void handelImagePerson() 
+        private void handelImagePerson()
         {
             Guid imagename = Guid.NewGuid();
 
-            if (File.Exists(_Person.ImagePath))
-                    File.Delete(_Person.ImagePath);
+            if ( File.Exists(_Person.ImagePath) )
+                File.Delete(_Person.ImagePath);
 
             string path = _Person.ImagePath;
-            path = path.Replace(_Person.ImagePath, @"C:\CDVLD-People-Images\" + imagename + openFileDialog1.FileName.Substring(openFileDialog1.FileName.Length - 4, 4));
-            File.Copy(openFileDialog1.FileName, path);
+            path = path.Replace(_Person.ImagePath , @"C:\CDVLD-People-Images\" + imagename + openFileDialog1.FileName.Substring(openFileDialog1.FileName.Length - 4 , 4));
+            File.Copy(openFileDialog1.FileName , path);
             _Person.ImagePath = path;
         }
 
@@ -100,27 +122,30 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bm";
             openFileDialog1.Title = " Choics Image";
-            if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
+            if ( openFileDialog1.ShowDialog(this) == DialogResult.OK )
             {
-                
                 pbPersonImage.Load(openFileDialog1.FileName);
                 handelImagePerson();
-
 
             }
         }
 
-        private void handelTextValid_TextChanged(object sender, EventArgs e)
+        private void handelTextValid_TextChanged(object sender , EventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
+            TextBox textBox = (TextBox) sender;
 
-            if (string.IsNullOrEmpty(textBox.Text.Trim()))
+            if ( string.IsNullOrEmpty(textBox.Text.Trim()) )
             {
-                errorProvider1.SetError(textBox, "this filed Requerd");
+                errorProvider1.SetError(textBox , "this filed Requerd");
 
                 textBox.Focus();
             }
 
+        }
+
+        private void rbFemale_CheckedChanged(object sender , EventArgs e)
+        {
+            _handelDefulatImage();
         }
     }
 }

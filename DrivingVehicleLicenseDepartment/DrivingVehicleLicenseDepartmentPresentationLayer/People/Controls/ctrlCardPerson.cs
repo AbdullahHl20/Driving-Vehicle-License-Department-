@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DrivingVehicleLicenseDepartmentPresentationLayer.People;
 
 namespace DrivingVehicleLicenseDepartmentPresentationLayer
 {
@@ -18,21 +19,42 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         public ctrlCardPerson()
         {
             InitializeComponent();
+            _ResetPersonInfo();
+        }
+        public ctrlCardPerson(string NationalNo)
+        {
+            InitializeComponent();
+            LoadPersonInfo(NationalNo);
         }
 
-        public void ResetPersonInfo()
+        public void _ResetPersonInfo()
         {
-        
+            string defultvalue = "[???]";
+            lblNationalNo.Text = defultvalue;
+            lblFullName.Text = defultvalue;
+            lblEmail.Text = defultvalue;
+            lblPhone.Text = defultvalue;
+            lblAddress.Text = defultvalue;
+            lblGendor.Text = defultvalue;
+            
         }
         public void _FillPersonInfo()
         {
+            lblNationalNo.Text = _Person.NationalNo;
+            lblFullName.Text = _Person.FirstName + _Person.SecondName + _Person.ThirdName + _Person.LastName;
+            lblEmail.Text = _Person.Email;
+            lblPhone.Text = _Person.Phone;
+            lblAddress.Text = _Person.Phone;
+            lblGendor.Text = _Person.Gendor == 0 ? "Male" : "Female";
+            lblNationalNo.Text = _Person.NationalNo;
+            lblPersonID.Text = Convert.ToString( _Person.PersonId);
         }
         public void LoadPersonInfo(string NationalNo)
         {
             _Person = clsPerson.Find(NationalNo);
             if ( _Person == null )
             {
-                ResetPersonInfo();
+                _ResetPersonInfo();
                 MessageBox.Show("No Person with National No. = " + NationalNo.ToString() , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                 return;
             }
@@ -40,7 +62,12 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             _FillPersonInfo();
         }
 
+        private void llEditPersonInfo_LinkClicked(object sender , LinkLabelLinkClickedEventArgs e)
+        {
 
+            frmAddUpdatePerson frmAddUpdatePerson = new frmAddUpdatePerson(_Person.NationalNo);
 
+            frmAddUpdatePerson.ShowDialog();
+        }
     }
 }
