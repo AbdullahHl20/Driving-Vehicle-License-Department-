@@ -96,7 +96,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         {
             switch ( SaveMode )
             {
-                case enSaveMode.Add:
+                case enSaveMode.Add:{
                     if ( _AddNewPerson() )
                     {
 
@@ -106,17 +106,27 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
                     else
                     {
                         return false;
-                    }
+                    } 
+                }
 
-                //case SaveMode.Update:
+                case enSaveMode.Update:
 
-                //    return _UpdateContact();
+                    return _UpdatePerson();
             }
             return false;
         }
         private bool _AddNewPerson()
         {
             this.PersonId = clsPersonData.AddNewPerson(this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
+                            this.DateOfBirth , this.Gendor , this.Address , this.Phone , this.Email , this.NationalityCountryID , this.ImagePath);
+
+            return this.PersonId != -1;
+
+        }
+
+        private bool _UpdatePerson()
+        {
+            this.PersonId = clsPersonData.UpdatePerson(this.PersonId,this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
                             this.DateOfBirth , this.Gendor , this.Address , this.Phone , this.Email , this.NationalityCountryID , this.ImagePath);
 
             return this.PersonId != -1;

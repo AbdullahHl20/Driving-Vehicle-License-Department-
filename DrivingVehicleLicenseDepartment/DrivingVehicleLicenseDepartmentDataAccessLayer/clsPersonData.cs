@@ -10,22 +10,20 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 {
     public class clsPersonData
     {
-        public static int AddNewPerson(string NationalNo,
+        public static int UpdatePerson(int PersonID , string NationalNo,
             string FirstName,string LastName,string SecondName,string ThirdName,
             DateTime DateOfBirth, short Gendor ,string Address,string Phone, string Email, int NationalityCountryID, string ImagePath
             )
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string selectQuery = "INSERT INTO [People] (" +
-                "[NationalNo],[FirstName],[SecondName],[ThirdName],[LastName]" +
-                ",[DateOfBirth],[Gendor],[Address],[Phone],[Email],[NationalityCountryID],[ImagePath]" +
-                ") " +
-                "Values(@NationalNo,@FirstName,@SecondName,@ThirdName," +
-                "@LastName,@DateOfBirth,@Gendor,@Address," +
-                "@Phone,@Email,@NationalityCountryID,@ImagePath)" +
-                "select SCOPE_IDENTITY()";
+            string selectQuery = "UPDATE [dbo].[People] SET [NationalNo] = @NationalNo,[FirstName] =@FirstName ," +
+                "[SecondName] =@SecondName,[ThirdName] =@ThirdName ,[LastName] =@LastName ," +
+                "[DateOfBirth] =@DateOfBirth ,[Gendor] =@Gendor ,[Address] =@Address," +
+                "[Phone] =@Phone ,[Email] =@Email ," +
+                "[NationalityCountryID] =@NationalityCountryID,[ImagePath] =@ImagePath  WHERE [PersonID] =@PersonID ";
             SqlCommand cmd = new SqlCommand(selectQuery , sqlConnection);
+            cmd.Parameters.AddWithValue("@PersonID" , PersonID);
             cmd.Parameters.AddWithValue("@NationalNo" , NationalNo);
             cmd.Parameters.AddWithValue("@FirstName" , FirstName);
             cmd.Parameters.AddWithValue("@SecondName" , SecondName);
@@ -45,6 +43,54 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
                 SqlDataReader sqlDataReader = cmd.ExecuteReader();
                 sqlConnection.Close();
                 return Convert.ToInt32( sqlDataReader.ToString());
+
+            }
+            catch ( Exception ex )
+            {
+                return -1;
+            }
+
+        }  public static int AddNewPerson(string NationalNo,
+            string FirstName,string LastName,string SecondName,string ThirdName,
+            DateTime DateOfBirth, short Gendor ,string Address,string Phone, string Email, int NationalityCountryID, string ImagePath
+            )
+        {
+            SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string selectQuery = "INSERT INTO [People](" +
+                "[NationalNo],[FirstName],[SecondName],[ThirdName],[LastName]" +
+                ",[DateOfBirth],[Gendor],[Address],[Phone],[Email],[NationalityCountryID],[ImagePath]) " +
+                "Values(@NationalNo,@FirstName,@SecondName,@ThirdName," +
+                "@LastName,@DateOfBirth,@Gendor,@Address," +
+                "@Phone,@Email,@NationalityCountryID,@ImagePath);" +
+                "select SCOPE_IDENTITY() ;";
+            SqlCommand cmd = new SqlCommand(selectQuery , sqlConnection);
+            cmd.Parameters.AddWithValue("@NationalNo" , NationalNo);
+            cmd.Parameters.AddWithValue("@FirstName" , FirstName);
+            cmd.Parameters.AddWithValue("@SecondName" , SecondName);
+            cmd.Parameters.AddWithValue("@ThirdName" , ThirdName);
+            cmd.Parameters.AddWithValue("@LastName" , LastName);
+            cmd.Parameters.AddWithValue("@DateOfBirth" , DateOfBirth);
+            cmd.Parameters.AddWithValue("@Gendor" , Gendor);
+            cmd.Parameters.AddWithValue("@Address" , Address);
+            cmd.Parameters.AddWithValue("@Phone" , Phone);
+            cmd.Parameters.AddWithValue("@Email" , Email);
+            cmd.Parameters.AddWithValue("@NationalityCountryID" , NationalityCountryID);
+            cmd.Parameters.AddWithValue("@ImagePath" , ImagePath);
+
+            try
+            {
+                sqlConnection.Open();
+
+                object result = cmd.ExecuteScalar();
+
+
+                if ( result != null && int.TryParse(result.ToString() , out int insertedID) )
+                {
+                    return insertedID;
+                }
+                sqlConnection.Close();
+                return - 1 ;
 
             }
             catch ( Exception ex )
