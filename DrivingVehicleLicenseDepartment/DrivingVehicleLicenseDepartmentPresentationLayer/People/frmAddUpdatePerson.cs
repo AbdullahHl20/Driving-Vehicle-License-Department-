@@ -54,7 +54,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             _Person.Phone = txtPhone.Text;
             _Person.Address = txtAddress.Text;
             _Person.NationalityCountryID = cbCountry.SelectedIndex;
-            pbPersonImage.Load (_Person.ImagePath);
+            
 
         }
 
@@ -69,7 +69,8 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             txtPhone.Text = _Person.Phone;
             txtAddress.Text = _Person.Phone;
             cbCountry.SelectedIndex = _Person.NationalityCountryID;
-           
+            pbPersonImage.Load(_Person.ImagePath);
+
         }
 
         private void btnSave_Click(object sender , EventArgs e)
