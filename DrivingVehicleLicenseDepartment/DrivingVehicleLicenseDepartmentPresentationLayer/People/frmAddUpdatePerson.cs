@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             _Person.Phone = txtPhone.Text;
             _Person.Address = txtAddress.Text;
             _Person.NationalityCountryID = cbCountry.SelectedIndex;
+            pbPersonImage.Load (_Person.ImagePath);
 
         }
 
@@ -67,6 +69,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             txtPhone.Text = _Person.Phone;
             txtAddress.Text = _Person.Phone;
             cbCountry.SelectedIndex = _Person.NationalityCountryID;
+           
         }
 
         private void btnSave_Click(object sender , EventArgs e)
@@ -79,32 +82,43 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.People
             }
         }
 
+        private void handelImagePerson() 
+        {
+            Guid imagename = Guid.NewGuid();
+
+            if (File.Exists(_Person.ImagePath))
+                    File.Delete(_Person.ImagePath);
+
+            string path = _Person.ImagePath;
+            path = path.Replace(_Person.ImagePath, @"C:\CDVLD-People-Images\" + imagename + openFileDialog1.FileName.Substring(openFileDialog1.FileName.Length - 4, 4));
+            File.Copy(openFileDialog1.FileName, path);
+            _Person.ImagePath = path;
+        }
+
         private void llSetImage_LinkClicked(object sender , LinkLabelLinkClickedEventArgs e)
         {
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bm";
             openFileDialog1.Title = " Choics Image";
             if (openFileDialog1.ShowDialog(this) == DialogResult.OK)
-            { 
+            {
+                
                 pbPersonImage.Load(openFileDialog1.FileName);
-                _Person.ImagePath = openFileDialog1.FileName;
-           
+                handelImagePerson();
+
+
             }
         }
 
-        private void handelTextValid_TextChanged(object sender , EventArgs e)
+        private void handelTextValid_TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = (TextBox) sender;
+            TextBox textBox = (TextBox)sender;
 
             if (string.IsNullOrEmpty(textBox.Text.Trim()))
             {
-                errorProvider1.SetError(textBox , "this filed Requerd");
+                errorProvider1.SetError(textBox, "this filed Requerd");
 
                 textBox.Focus();
             }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
 
         }
     }

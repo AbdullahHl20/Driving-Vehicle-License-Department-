@@ -126,10 +126,9 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
         private bool _UpdatePerson()
         {
-            this.PersonId = clsPersonData.UpdatePerson(this.PersonId,this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
+            return clsPersonData.UpdatePerson(this.PersonId,this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
                             this.DateOfBirth , this.Gendor , this.Address , this.Phone , this.Email , this.NationalityCountryID , this.ImagePath);
 
-            return this.PersonId != -1;
 
         }
 

@@ -10,7 +10,7 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 {
     public class clsPersonData
     {
-        public static int UpdatePerson(int PersonID , string NationalNo,
+        public static bool UpdatePerson(int PersonID , string NationalNo,
             string FirstName,string LastName,string SecondName,string ThirdName,
             DateTime DateOfBirth, short Gendor ,string Address,string Phone, string Email, int NationalityCountryID, string ImagePath
             )
@@ -40,14 +40,14 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
             try
             {
                 sqlConnection.Open();
-                SqlDataReader sqlDataReader = cmd.ExecuteReader();
+                bool isUpdated = cmd.ExecuteNonQuery() != 0;
                 sqlConnection.Close();
-                return Convert.ToInt32( sqlDataReader.ToString());
+                return isUpdated;
 
             }
             catch ( Exception ex )
             {
-                return -1;
+                return false;
             }
 
         }  public static int AddNewPerson(string NationalNo,
