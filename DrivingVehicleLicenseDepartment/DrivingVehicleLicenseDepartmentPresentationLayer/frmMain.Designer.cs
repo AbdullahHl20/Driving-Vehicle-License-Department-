@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MangeUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +40,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
-            this.peopleToolStripMenuItem});
+            this.peopleToolStripMenuItem,
+            this.MangeUserMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1787, 28);
@@ -58,6 +60,14 @@
             this.peopleToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.peopleToolStripMenuItem.Text = "People";
             this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
+            // 
+            // MangeUserMenuItem
+            // 
+            this.MangeUserMenuItem.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Users_2_64;
+            this.MangeUserMenuItem.Name = "MangeUserMenuItem";
+            this.MangeUserMenuItem.Size = new System.Drawing.Size(128, 24);
+            this.MangeUserMenuItem.Text = "Mange Users";
+            this.MangeUserMenuItem.Click += new System.EventHandler(this.MangeUserMenuItem_Click);
             // 
             // frmMain
             // 
@@ -80,6 +90,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem peopleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MangeUserMenuItem;
     }
 }
 

@@ -9,6 +9,25 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
     public enum enSaveMode { Add, Update }
     public class clsPerson
     {
+        #region Fields
+        public int PersonId { get; set; }
+        public enSaveMode SaveMode { get; set; }
+
+        public string NationalNo { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string ThirdName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public short Gendor { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public int NationalityCountryID { get; set; }
+        public string ImagePath { get; set; }
+        #endregion
+
+        #region constructor
 
         public clsPerson()
         {
@@ -26,14 +45,14 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
         }
 
-        public clsPerson(int PersonId  , string FirstName , string SecondName , string ThirdName ,
-           string LastName ,string NationalNo, DateTime DateOfBirth , short Gendor , string Address , string Phone ,
+        public clsPerson(int PersonId , string FirstName , string SecondName , string ThirdName ,
+           string LastName , string NationalNo , DateTime DateOfBirth , short Gendor , string Address , string Phone ,
            string Email , int NationalityCountryID , string ImagePath)
         {
             this.PersonId = PersonId;
             this.NationalNo = NationalNo;
             this.FirstName = FirstName;
-            this.SecondName  = SecondName;
+            this.SecondName = SecondName;
             this.ThirdName = ThirdName;
             this.LastName = LastName;
             this.DateOfBirth = DateOfBirth;
@@ -46,24 +65,9 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
             SaveMode = enSaveMode.Update;
 
         }
-        public int PersonId { get; set; }
-        public enSaveMode SaveMode { get; set; }
+        #endregion
 
-        public string NationalNo { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public string ThirdName { get; set; }
-        public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public short Gendor { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public int NationalityCountryID { get; set; }
-        public string ImagePath { get; set; }
-
-
-        public static clsPerson Find(string NationalNo )
+        public static clsPerson Find(string NationalNo)
         {
 
             string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Email = "", Phone = "", Address = "", ImagePath = "";
@@ -96,7 +100,8 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         {
             switch ( SaveMode )
             {
-                case enSaveMode.Add:{
+                case enSaveMode.Add:
+                {
                     if ( _AddNewPerson() )
                     {
 
@@ -106,7 +111,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
                     else
                     {
                         return false;
-                    } 
+                    }
                 }
 
                 case enSaveMode.Update:
@@ -126,7 +131,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
         private bool _UpdatePerson()
         {
-            return clsPersonData.UpdatePerson(this.PersonId,this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
+            return clsPersonData.UpdatePerson(this.PersonId , this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
                             this.DateOfBirth , this.Gendor , this.Address , this.Phone , this.Email , this.NationalityCountryID , this.ImagePath);
 
 

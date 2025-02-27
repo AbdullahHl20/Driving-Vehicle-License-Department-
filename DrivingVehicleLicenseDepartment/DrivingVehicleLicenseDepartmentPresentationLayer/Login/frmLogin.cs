@@ -18,7 +18,9 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
         public frmLogin()
         {
             InitializeComponent();
-            _readUserInfoInFile();
+
+            if(File.Exists(_filePath) )
+                _readUserInfoInFile();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -28,16 +30,20 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (ChbRemberMe.Checked)
+            if ( ChbRemberMe.Checked && !File.Exists(_filePath) )
                 _writeUserInfoInFile();
+            else 
+            {
+                File.Delete(_filePath);
+            }
 
         }
 
         private void _writeUserInfoInFile()
         {
-
+   
             // The text content you want to write to the file
-            string content = "Hello, this is a sample text written to the file.";
+            string content = txtUserName.Text + "\\"+ txtPassword.Text ;
 
             // Write to the file using StreamWriter
             try
@@ -56,18 +62,14 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
         }
 
         private void _readUserInfoInFile()
-        {
-
-            // The text content you want to write to the file
-            string content = "Hello, this is a sample text written to the file.";
-
+        { 
             // Write to the file using StreamWriter
             try
             {
                 using (StreamReader reader = new StreamReader(_filePath))
                 {
-                    reader.ReadLine();
-                }
+                    string[] values =   reader.ReadLine().Split('\\');
+                }   
 
                 Console.WriteLine("Text written to the file successfully.");
             }
@@ -76,7 +78,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
-
+                
     }
 
 }

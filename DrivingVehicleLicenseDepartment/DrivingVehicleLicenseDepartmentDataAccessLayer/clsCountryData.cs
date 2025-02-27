@@ -16,9 +16,9 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Countries WHERE CountryId = @CountryId";
+            string selectquery = "SELECT * FROM Countries WHERE CountryId = @CountryId";
 
-            SqlCommand command = new SqlCommand(query , connection);
+            SqlCommand command = new SqlCommand(selectquery , connection);
 
             command.Parameters.AddWithValue("@CountryId" , CountryId);
 

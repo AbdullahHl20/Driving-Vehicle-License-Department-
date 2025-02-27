@@ -10,19 +10,20 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 {
     public class clsPersonData
     {
-        public static bool UpdatePerson(int PersonID , string NationalNo,
-            string FirstName,string LastName,string SecondName,string ThirdName,
-            DateTime DateOfBirth, short Gendor ,string Address,string Phone, string Email, int NationalityCountryID, string ImagePath
+        #region UpdateQuery
+        public static bool UpdatePerson(int PersonID , string NationalNo ,
+            string FirstName , string LastName , string SecondName , string ThirdName ,
+            DateTime DateOfBirth , short Gendor , string Address , string Phone , string Email , int NationalityCountryID , string ImagePath
             )
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string selectQuery = "UPDATE [dbo].[People] SET [NationalNo] = @NationalNo,[FirstName] =@FirstName ," +
+            string UpdateQuery = "UPDATE [dbo].[People] SET [NationalNo] = @NationalNo,[FirstName] =@FirstName ," +
                 "[SecondName] =@SecondName,[ThirdName] =@ThirdName ,[LastName] =@LastName ," +
                 "[DateOfBirth] =@DateOfBirth ,[Gendor] =@Gendor ,[Address] =@Address," +
                 "[Phone] =@Phone ,[Email] =@Email ," +
                 "[NationalityCountryID] =@NationalityCountryID,[ImagePath] =@ImagePath  WHERE [PersonID] =@PersonID ";
-            SqlCommand cmd = new SqlCommand(selectQuery , sqlConnection);
+            SqlCommand cmd = new SqlCommand(UpdateQuery , sqlConnection);
             cmd.Parameters.AddWithValue("@PersonID" , PersonID);
             cmd.Parameters.AddWithValue("@NationalNo" , NationalNo);
             cmd.Parameters.AddWithValue("@FirstName" , FirstName);
@@ -50,21 +51,22 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
                 return false;
             }
 
-        }  public static int AddNewPerson(string NationalNo,
-            string FirstName,string LastName,string SecondName,string ThirdName,
-            DateTime DateOfBirth, short Gendor ,string Address,string Phone, string Email, int NationalityCountryID, string ImagePath
+        }
+        public static int AddNewPerson(string NationalNo ,
+            string FirstName , string LastName , string SecondName , string ThirdName ,
+            DateTime DateOfBirth , short Gendor , string Address , string Phone , string Email , int NationalityCountryID , string ImagePath
             )
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string selectQuery = "INSERT INTO [People](" +
+            string insertQuery = "INSERT INTO [People](" +
                 "[NationalNo],[FirstName],[SecondName],[ThirdName],[LastName]" +
                 ",[DateOfBirth],[Gendor],[Address],[Phone],[Email],[NationalityCountryID],[ImagePath]) " +
                 "Values(@NationalNo,@FirstName,@SecondName,@ThirdName," +
                 "@LastName,@DateOfBirth,@Gendor,@Address," +
                 "@Phone,@Email,@NationalityCountryID,@ImagePath);" +
                 "select SCOPE_IDENTITY() ;";
-            SqlCommand cmd = new SqlCommand(selectQuery , sqlConnection);
+            SqlCommand cmd = new SqlCommand(insertQuery , sqlConnection);
             cmd.Parameters.AddWithValue("@NationalNo" , NationalNo);
             cmd.Parameters.AddWithValue("@FirstName" , FirstName);
             cmd.Parameters.AddWithValue("@SecondName" , SecondName);
@@ -90,7 +92,7 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
                     return insertedID;
                 }
                 sqlConnection.Close();
-                return - 1 ;
+                return -1;
 
             }
             catch ( Exception ex )
@@ -99,7 +101,14 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
             }
 
         }
+        #endregion
 
+        #region Delete
+
+        //Delete Person 
+        #endregion
+
+        #region GetPersonInfoByNationalNo
         public static bool GetPersonInfoByNationalNo(string NationalNo , ref int PersonID , ref string FirstName , ref string SecondName ,
        ref string ThirdName , ref string LastName , ref DateTime DateOfBirth ,
         ref short Gendor , ref string Address , ref string Phone , ref string Email ,
@@ -109,9 +118,9 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM People WHERE NationalNo = @NationalNo";
+            string selectquery = "SELECT * FROM People WHERE NationalNo = @NationalNo";
 
-            SqlCommand command = new SqlCommand(query , connection);
+            SqlCommand command = new SqlCommand(selectquery , connection);
 
             command.Parameters.AddWithValue("@NationalNo" , NationalNo);
 
@@ -190,31 +199,47 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 
             return isFound;
         }
+        #endregion
+
+        #region GetAllPerson
         public static DataTable GetAllPerson()
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string selectQuery = "select * from People";
-            SqlCommand cmd = new SqlCommand(selectQuery, sqlConnection);
+            string selectQuery = "SELECT [PersonID] PersonID ," +
+                                    "[NationalNo] NationalNo ," +
+                                    "[FirstName] FirstName," +
+                                    "[SecondName] SecondName," +
+                                    "[ThirdName] ThirdName," +
+                                    "[LastName] LastName," +
+                                    "[DateOfBirth] DateOfBirth," +
+                                    " CASE [Gendor] WHEN 0 THEN  'Male' ELSE 'Female' END Gendor," +
+                                    "[Address] Address," +
+                                    "[Phone] Phone," +
+                                    "[Email] Email," +
+                                    "[NationalityCountryID] AS NationalityCountryID," +
+                                    "[ImagePath] AS ImagePath " +
+                                    "FROM  [People]";
+            SqlCommand cmd = new SqlCommand(selectQuery , sqlConnection);
 
-            try 
+            try
             {
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader = cmd.ExecuteReader();
+
                 DataTable dt = new DataTable();
-
                 dt.Load(sqlDataReader);
-
                 sqlConnection.Close();
+                              
                 return dt;
 
             }
-            catch (Exception ex) 
+            catch ( Exception ex )
             {
                 return null;
             }
-        
-        }
 
+        }
+        #endregion
     }
 }

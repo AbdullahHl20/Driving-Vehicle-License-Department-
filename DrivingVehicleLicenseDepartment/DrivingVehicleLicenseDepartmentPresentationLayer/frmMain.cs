@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DrivingVehicleLicenseDepartmentPresentationLayer.User;
 
 namespace DrivingVehicleLicenseDepartmentPresentationLayer
 {
@@ -22,6 +23,12 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             frmMangePeople frmMangePeople = new frmMangePeople();
 
             frmMangePeople.ShowDialog();
+        }
+
+        private void MangeUserMenuItem_Click(object sender , EventArgs e)
+        {
+            frmUserList frmuserlist = new frmUserList();
+            frmuserlist.ShowDialog();
         }
     }
 }
