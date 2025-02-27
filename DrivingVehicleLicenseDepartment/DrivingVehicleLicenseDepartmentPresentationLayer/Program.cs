@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrivingVehicleLicenseDepartmentPresentationLayer.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            //Application.Run(new frmMain());
+            Application.Run(new frmLogin());
         }
     }
 }
