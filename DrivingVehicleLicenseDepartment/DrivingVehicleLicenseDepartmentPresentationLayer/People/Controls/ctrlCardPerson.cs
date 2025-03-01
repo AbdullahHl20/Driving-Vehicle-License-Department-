@@ -28,6 +28,12 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             LoadPersonInfo(NationalNo);
         }
 
+        public ctrlCardPerson(int Personid)
+        {
+            InitializeComponent();
+            LoadPersonInfo(Personid);
+        }
+
         public void _ResetPersonInfo()
         {
             string defultvalue = "[???]";
@@ -64,6 +70,20 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             {
                 _ResetPersonInfo();
                 MessageBox.Show("No Person with National No. = " + NationalNo.ToString() , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                return;
+            }
+            _Country = clsCountry.Find(_Person.NationalityCountryID);
+
+            _FillPersonInfo();
+        }
+
+        public void LoadPersonInfo(int Personid)
+        {
+            _Person = clsPerson.Find(Personid);
+            if (_Person == null)
+            {
+                _ResetPersonInfo();
+                MessageBox.Show("No Person with National No. = " + Personid.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _Country = clsCountry.Find(_Person.NationalityCountryID);

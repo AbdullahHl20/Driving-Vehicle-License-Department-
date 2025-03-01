@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayerDrivingVehicleLicenseDepartment;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,12 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
     {
 
         private string _filePath = @"..\LastUserData.txt";
+        private clsUser _User;
         public frmLogin()
         {
             InitializeComponent();
 
-            if(File.Exists(_filePath) )
+            if (File.Exists(_filePath))
                 _readUserInfoInFile();
         }
 
@@ -30,9 +32,15 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if ( ChbRemberMe.Checked && !File.Exists(_filePath) )
+
+            _User = clsUser.FindByUserNameAndPassword(txtUserName.Text,txtPassword.Text);
+
+            if (_User == null)
+                return;
+
+            if (ChbRemberMe.Checked && !File.Exists(_filePath))
                 _writeUserInfoInFile();
-            else 
+            else
             {
                 File.Delete(_filePath);
             }
@@ -41,9 +49,8 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
 
         private void _writeUserInfoInFile()
         {
-   
             // The text content you want to write to the file
-            string content = txtUserName.Text + "\\"+ txtPassword.Text ;
+            string content = txtUserName.Text + "\\" + txtPassword.Text;
 
             // Write to the file using StreamWriter
             try
@@ -52,8 +59,6 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
                 {
                     writer.WriteLine(content);
                 }
-
-                Console.WriteLine("Text written to the file successfully.");
             }
             catch (Exception ex)
             {
@@ -62,23 +67,21 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
         }
 
         private void _readUserInfoInFile()
-        { 
+        {
             // Write to the file using StreamWriter
             try
             {
                 using (StreamReader reader = new StreamReader(_filePath))
                 {
-                    string[] values =   reader.ReadLine().Split('\\');
-                }   
-
-                Console.WriteLine("Text written to the file successfully.");
+                    string[] values = reader.ReadLine().Split('\\');
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
-                
+
     }
 
 }

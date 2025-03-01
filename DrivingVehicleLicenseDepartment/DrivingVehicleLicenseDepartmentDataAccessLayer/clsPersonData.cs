@@ -59,7 +59,7 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string insertQuery = "INSERT INTO [People](" +
+            const string insertQuery = "INSERT INTO [People](" +
                 "[NationalNo],[FirstName],[SecondName],[ThirdName],[LastName]" +
                 ",[DateOfBirth],[Gendor],[Address],[Phone],[Email],[NationalityCountryID],[ImagePath]) " +
                 "Values(@NationalNo,@FirstName,@SecondName,@ThirdName," +
@@ -110,9 +110,9 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 
         #region GetPersonInfoByNationalNo
         public static bool GetPersonInfoByNationalNo(string NationalNo , ref int PersonID , ref string FirstName , ref string SecondName ,
-       ref string ThirdName , ref string LastName , ref DateTime DateOfBirth ,
-        ref short Gendor , ref string Address , ref string Phone , ref string Email ,
-        ref int NationalityCountryID , ref string ImagePath)
+            ref string ThirdName , ref string LastName , ref DateTime DateOfBirth ,
+            ref short Gendor , ref string Address , ref string Phone , ref string Email ,
+            ref int NationalityCountryID , ref string ImagePath)
         {
             bool isFound = false;
 
@@ -200,6 +200,97 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
             return isFound;
         }
         #endregion
+
+        public static bool GetPersonInfoByPersonID(int PersonID ,ref string NationalNo, ref string FirstName, ref string SecondName,
+            ref string ThirdName, ref string LastName, ref DateTime DateOfBirth,
+            ref short Gendor, ref string Address, ref string Phone, ref string Email,
+            ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string selectquery = "SELECT * FROM People WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(selectquery, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // The record was found
+                    isFound = true;
+
+                    PersonID = (int)reader["PersonID"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+
+                    //ThirdName: allows null in database so we should handle null
+                    if (reader["ThirdName"] != DBNull.Value)
+                    {
+                        ThirdName = (string)reader["ThirdName"];
+                    }
+                    else
+                    {
+                        ThirdName = "";
+                    }
+
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gendor = (byte)reader["Gendor"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+
+                    //Email: allows null in database so we should handle null
+                    if (reader["Email"] != DBNull.Value)
+                    {
+                        Email = (string)reader["Email"];
+                    }
+                    else
+                    {
+                        Email = "";
+                    }
+
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+
+                    //ImagePath: allows null in database so we should handle null
+                    if (reader["ImagePath"] != DBNull.Value)
+                    {
+                        ImagePath = (string)reader["ImagePath"];
+                    }
+                    else
+                    {
+                        ImagePath = "";
+                    }
+
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
 
         #region GetAllPerson
         public static DataTable GetAllPerson()

@@ -67,6 +67,8 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         }
         #endregion
 
+        #region Funactions
+
         public static clsPerson Find(string NationalNo)
         {
 
@@ -77,7 +79,31 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
             bool IsFound = clsPersonData.GetPersonInfoByNationalNo
                                 (
-                                    NationalNo , ref PersonID , ref FirstName , ref SecondName ,
+                                    NationalNo, ref PersonID, ref FirstName, ref SecondName,
+                                    ref ThirdName, ref LastName, ref DateOfBirth,
+                                    ref Gendor, ref Address, ref Phone, ref Email,
+                                    ref NationalityCountryID, ref ImagePath
+                                );
+
+            if (IsFound)
+
+                return new clsPerson(PersonID, FirstName, SecondName, ThirdName, LastName,
+                          NationalNo, DateOfBirth, Gendor, Address, Phone, Email, NationalityCountryID, ImagePath);
+            else
+                return null;
+
+        }
+
+        public static clsPerson Find(int PersonID)
+        {
+
+             string NationalNo= "" , FirstName = "", SecondName = "", ThirdName = "", LastName = "", Email = "", Phone = "", Address = "", ImagePath = "";
+            DateTime DateOfBirth = DateTime.Now;
+            int  NationalityCountryID = -1;
+            short Gendor = 0;
+
+            bool IsFound = clsPersonData.GetPersonInfoByPersonID
+                                (  PersonID ,ref NationalNo, ref FirstName , ref SecondName ,
                                     ref ThirdName , ref LastName , ref DateOfBirth ,
                                     ref Gendor , ref Address , ref Phone , ref Email ,
                                     ref NationalityCountryID , ref ImagePath
@@ -136,6 +162,8 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
 
         }
+        #endregion
+
 
     }
 }

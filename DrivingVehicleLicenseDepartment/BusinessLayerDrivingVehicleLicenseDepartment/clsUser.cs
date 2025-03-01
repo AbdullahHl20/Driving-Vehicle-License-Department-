@@ -40,11 +40,25 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         }
         #endregion
 
-        #region GetAllUser
+        #region Funactions
         public static DataTable GetAllUsers()
         {
             return clsUserData.GetAllUsers();
         }
+
+        public static clsUser FindByUserNameAndPassword(string UserName, string PassWord)
+        {
+           
+           int UserId = 0 , PersonId =  0; bool IsActive=false;
+
+           bool isfound = clsUserData.FindByUserNameAndPassword(UserName, PassWord, ref UserId, ref PersonId,ref IsActive);
+
+            if (isfound == true)
+                return new clsUser(UserId, PersonId, UserName, PassWord, IsActive);
+            else
+               return null;
+        }
+
 
         #endregion
     }

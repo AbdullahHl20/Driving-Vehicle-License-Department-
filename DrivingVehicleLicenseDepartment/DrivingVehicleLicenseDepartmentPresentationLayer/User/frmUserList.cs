@@ -27,6 +27,11 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.User
             dgvUsers.DataSource = dvUser;
         }
 
+        private void btnAddNewUser_Click(object sender, EventArgs e)
+        {
+            frmAddNewUser frmAddNewUser = new frmAddNewUser();
 
+             frmAddNewUser.ShowDialog();
+        }
     }
 }

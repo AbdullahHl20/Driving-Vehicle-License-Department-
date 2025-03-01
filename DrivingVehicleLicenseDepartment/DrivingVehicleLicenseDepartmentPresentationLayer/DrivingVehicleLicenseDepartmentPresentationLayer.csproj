@@ -79,6 +79,12 @@
     <Compile Include="frmMangePeople.Designer.cs">
       <DependentUpon>frmMangePeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\Controls\ctrlFilterPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrlFilterPerson.Designer.cs">
+      <DependentUpon>ctrlFilterPerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmAddUpdatePerson.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMangePeople.resx">
       <DependentUpon>frmMangePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrlFilterPerson.resx">
+      <DependentUpon>ctrlFilterPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
       <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
@@ -213,6 +222,11 @@
   <ItemGroup>
     <Content Include="Images\Female 512.png" />
     <Content Include="Images\Male 512.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\window-close.png" />
+    <None Include="Resources\save-folder.png" />
+    <None Include="Resources\user.png" />
     <None Include="Resources\Users 2 64.png" />
     <None Include="Resources\Users 2 400.png" />
     <None Include="Resources\login.png" />

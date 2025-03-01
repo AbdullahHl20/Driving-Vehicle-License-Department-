@@ -18,9 +18,9 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            //Application.Run(new frmMain());
             //Application.Run(new frmLogin());
-           // Application.Run(new frmUserList());
+             Application.Run(new frmUserList());
         }
     }
 }
