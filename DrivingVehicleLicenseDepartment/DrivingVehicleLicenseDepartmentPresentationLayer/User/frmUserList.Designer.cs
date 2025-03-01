@@ -35,8 +35,8 @@
             this.contextMangeUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAddNewUser = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MenuItemAddUser = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemAddUser = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.contextMangeUsers.SuspendLayout();
@@ -46,6 +46,8 @@
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.ContextMenuStrip = this.contextMangeUsers;
             this.dgvUsers.Location = new System.Drawing.Point(139, 319);
@@ -85,10 +87,11 @@
             this.MenuItemShowDetails,
             this.MenuItemAddUser});
             this.contextMangeUsers.Name = "contextMangeUsers";
-            this.contextMangeUsers.Size = new System.Drawing.Size(215, 84);
+            this.contextMangeUsers.Size = new System.Drawing.Size(178, 56);
             // 
             // btnAddNewUser
             // 
+            this.btnAddNewUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddNewUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.user;
             this.btnAddNewUser.Location = new System.Drawing.Point(883, 266);
             this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(4);
@@ -109,20 +112,20 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // MenuItemAddUser
-            // 
-            this.MenuItemAddUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Add_New_User_32;
-            this.MenuItemAddUser.Name = "MenuItemAddUser";
-            this.MenuItemAddUser.Size = new System.Drawing.Size(214, 26);
-            this.MenuItemAddUser.Text = "Add New User";
-            this.MenuItemAddUser.Click += new System.EventHandler(this.MenuItemAddUser_Click);
-            // 
             // MenuItemShowDetails
             // 
             this.MenuItemShowDetails.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.PersonDetails_32;
             this.MenuItemShowDetails.Name = "MenuItemShowDetails";
-            this.MenuItemShowDetails.Size = new System.Drawing.Size(214, 26);
+            this.MenuItemShowDetails.Size = new System.Drawing.Size(177, 26);
             this.MenuItemShowDetails.Text = "Show Details";
+            // 
+            // MenuItemAddUser
+            // 
+            this.MenuItemAddUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Add_New_User_32;
+            this.MenuItemAddUser.Name = "MenuItemAddUser";
+            this.MenuItemAddUser.Size = new System.Drawing.Size(177, 26);
+            this.MenuItemAddUser.Text = "Add New User";
+            this.MenuItemAddUser.Click += new System.EventHandler(this.MenuItemAddUser_Click);
             // 
             // frmUserList
             // 
@@ -134,9 +137,8 @@
             this.Controls.Add(this.dgvUsers);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmUserList";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUserList";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmUserList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.groupBox1.ResumeLayout(false);
