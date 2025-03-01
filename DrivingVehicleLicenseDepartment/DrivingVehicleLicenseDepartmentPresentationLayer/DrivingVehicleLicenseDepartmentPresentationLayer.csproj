@@ -132,6 +132,7 @@
     <EmbeddedResource Include="People\frmShowPersonInfo.resx">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -222,6 +223,12 @@
   <ItemGroup>
     <Content Include="Images\Female 512.png" />
     <Content Include="Images\Male 512.png" />
+    <None Include="Resources\account_settings 64.png" />
+    <None Include="Resources\DVLD Logo.png" />
+    <None Include="Resources\Password 32.png" />
+    <None Include="Resources\Add New User 32.png" />
+    <None Include="Resources\Add Person 40.png" />
+    <None Include="Resources\SearchPerson.png" />
     <None Include="Resources\back.png" />
     <None Include="Resources\next.png" />
     <None Include="Resources\window-close.png" />

@@ -27,6 +27,13 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             InitializeComponent();
             LoadPersonInfo(NationalNo);
         }
+         public void loadPersondata(clsPerson person)
+        {
+          
+            _Person = person;
+            _Country = clsCountry.Find(_Person.NationalityCountryID);
+            FillPersonInfo();
+        }
 
         public ctrlCardPerson(int Personid)
         {
@@ -47,7 +54,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             lblCountry.Text = defultvalue;
             llEditPersonInfo.Enabled = false;
         }
-        public void _FillPersonInfo()
+        public void FillPersonInfo()
         {
             lblNationalNo.Text = _Person.NationalNo;
             lblFullName.Text = _Person.FirstName + _Person.SecondName + _Person.ThirdName + _Person.LastName;
@@ -74,7 +81,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             }
             _Country = clsCountry.Find(_Person.NationalityCountryID);
 
-            _FillPersonInfo();
+            FillPersonInfo();
         }
 
         public void LoadPersonInfo(int Personid)
@@ -88,7 +95,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             }
             _Country = clsCountry.Find(_Person.NationalityCountryID);
 
-            _FillPersonInfo();
+            FillPersonInfo();
         }
 
         private void llEditPersonInfo_LinkClicked(object sender , LinkLabelLinkClickedEventArgs e)
@@ -97,6 +104,11 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             frmAddUpdatePerson frmAddUpdatePerson = new frmAddUpdatePerson(_Person.NationalNo);
 
             frmAddUpdatePerson.ShowDialog();
+        }
+
+        public int GetPersonid() 
+        {
+            return _Person.PersonId;
         }
     }
 }

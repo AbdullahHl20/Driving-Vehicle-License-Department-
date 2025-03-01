@@ -14,6 +14,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         #region Fields
         public int UserId { set; get; }
         public int PersonId { set; get; }
+        public enSaveMode SaveMode { set; get; }
         public string UserName { set; get; }
         public string PassWord { set; get; }
         public bool IsActive { set; get; }
@@ -26,6 +27,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
             this.PersonId = 0;
             this.UserName = "";
             this.PassWord = "";
+            this.SaveMode = enSaveMode.Add;
             this.IsActive = true;
 
         }
@@ -36,11 +38,51 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
             this.UserName = UserName;
             this.PassWord = PassWord;
             this.IsActive = IsActive;
-
+            this.SaveMode = enSaveMode.Update;
         }
         #endregion
 
         #region Funactions
+
+        public bool Save()
+        {
+            switch ( SaveMode )
+            {
+                case enSaveMode.Add:
+                {
+                    if ( _AddNewUser() )
+                    {
+
+                        SaveMode = enSaveMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+                case enSaveMode.Update:
+
+                    return _UpdateUser();
+            }
+            return false;
+        }
+        private bool _AddNewUser()
+        {
+            this.UserId = clsUserData.AddNewUser(this.PersonId , this.UserName , this.PassWord , this.IsActive);
+
+            return this.PersonId != -1;
+
+        }
+
+        private bool _UpdateUser()
+        {
+            //return clsPersonData.UpdatePerson(this.PersonId , this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
+            //                this.DateOfBirth , this.Gendor , this.Address , this.Phone , this.Email , this.NationalityCountryID , this.ImagePath);
+            return false;
+
+        }
         public static DataTable GetAllUsers()
         {
             return clsUserData.GetAllUsers();

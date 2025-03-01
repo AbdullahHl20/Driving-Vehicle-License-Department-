@@ -15,7 +15,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.User
     {
 
         private DataView dvUser;
-        
+
         public frmUserList()
         {
             InitializeComponent();
@@ -27,11 +27,22 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.User
             dgvUsers.DataSource = dvUser;
         }
 
-        private void btnAddNewUser_Click(object sender, EventArgs e)
+        private void btnAddNewUser_Click(object sender , EventArgs e)
+        {
+            _showAddNewUserForm();
+        }
+
+        private void _showAddNewUserForm()
+
         {
             frmAddNewUser frmAddNewUser = new frmAddNewUser();
 
-             frmAddNewUser.ShowDialog();
+            frmAddNewUser.ShowDialog();
+        }
+
+        private void MenuItemAddUser_Click(object sender , EventArgs e)
+        {
+            _showAddNewUserForm();
         }
     }
 }

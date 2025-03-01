@@ -11,15 +11,47 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
     public class clsUserData
     {
         #region AddNewUser
-        public static int addNewUser()
+        public static bool UpdateUser(int PersonId ,int UserId, string UserName , string PassWord , bool IsActive)
         {
-            string insertQuery = "INSERT INTO [Users](" +
-                "[UserId],[UserName],[Password],[IsActive]" +
-                "Values(@UserId,@UserName,@Password,@IsActive);" +
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+
+                const string cmd = "UPDATE [dbo].[Users]   SET [PersonID] =@PersonId,[UserName] =@UserName " +
+                    "  ,[Password] =@Password    ,[IsActive] = @IsActive WHERE UserID =@UserId ";
+                SqlCommand sqlCommand = new SqlCommand(cmd , sqlConnection);
+                sqlCommand.Parameters.Add("@UserName" , UserName);
+                sqlCommand.Parameters.Add("@PassWord" , PassWord);
+                sqlCommand.Parameters.Add("@PersonId" , PersonId);
+                sqlCommand.Parameters.Add("@UserId" , UserId);
+                sqlCommand.Parameters.Add("@IsActive" , IsActive);
+                sqlConnection.Open();
+
+                bool isUpdated = sqlCommand.ExecuteNonQuery() > 0;
+                sqlConnection.Close();
+                return isUpdated;
+
+            }
+            catch ( Exception e )
+            {
+
+                return false ;
+            }
+
+        }
+        public static int AddNewUser(int PersonId , string UserName , string Password , bool IsActive)
+        {
+            string insertQuery = "INSERT INTO [Users]([PersonID],[UserName],[Password],[IsActive] )" +
+                "Values(@PersonID,@UserName,@Password,@IsActive);" +
                 "select SCOPE_IDENTITY() ;";
 
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             SqlCommand cmd = new SqlCommand(insertQuery, sqlConnection);
+            cmd.Parameters.AddWithValue("@PersonID" , PersonId);
+            cmd.Parameters.AddWithValue("@UserName" , UserName);
+            cmd.Parameters.AddWithValue("@Password" , Password);
+            cmd.Parameters.AddWithValue("@IsActive" , IsActive);
 
             try
             {
@@ -44,12 +76,6 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
         }
         #endregion
         #region GetAllUsers
-
-        public int UserId { set; get; }
-        public int PersonId { set; get; }
-        public string UserName { set; get; }
-        public string PassWord { set; get; }
-        public bool IsActive { set; get; }
         public static bool FindByUserNameAndPassword(string UserName, string PassWord, ref int UserId, ref int PersonId, ref bool IsActive)
         {
 
@@ -93,7 +119,7 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string selectQuery = "select UserID , PersonID, UserName,IsActive from Users";
+            string selectQuery = " select UserID , users.PersonID, person.FirstName + person.SecondName + person.ThirdName + person.LastName  FullName  ,  UserName,IsActive from Users users\r\nINNER JOIN People person on person.PersonID = users.PersonID";
             SqlCommand cmd = new SqlCommand(selectQuery, sqlConnection);
 
             try

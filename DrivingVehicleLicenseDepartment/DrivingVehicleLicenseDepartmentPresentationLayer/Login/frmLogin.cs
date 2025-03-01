@@ -44,6 +44,15 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
             {
                 File.Delete(_filePath);
             }
+            _showMainForm();
+        }
+
+        private void _showMainForm()
+        {
+            frmMain frmMain = new frmMain();    
+            
+            //this.Hide();
+            frmMain.Show();
 
         }
 
@@ -74,6 +83,8 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
                 using (StreamReader reader = new StreamReader(_filePath))
                 {
                     string[] values = reader.ReadLine().Split('\\');
+                    txtUserName.Text = values[0];
+                    txtPassword.Text = values[1];
                 }
             }
             catch (Exception ex)
