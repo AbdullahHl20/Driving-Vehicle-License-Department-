@@ -49,11 +49,10 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
 
         private void _showMainForm()
         {
-            frmMain frmMain = new frmMain();    
-            
-            //this.Hide();
-            frmMain.Show();
+            frmMain frmMain = new frmMain(this);
 
+            this.Hide();
+            frmMain.ShowDialog();
         }
 
         private void _writeUserInfoInFile()

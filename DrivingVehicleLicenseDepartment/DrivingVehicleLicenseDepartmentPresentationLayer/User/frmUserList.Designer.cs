@@ -30,16 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.contextMangeUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuItemShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuItemAddUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripEditUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDeleteUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripcall = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSendMail = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.contextMangeUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnAddNewUser = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MenuItemShowDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemAddUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddNewUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.contextMangeUsers.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,99 +57,152 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.ContextMenuStrip = this.contextMangeUsers;
-            this.dgvUsers.Location = new System.Drawing.Point(139, 319);
-            this.dgvUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvUsers.Location = new System.Drawing.Point(104, 259);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(2);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 24;
-            this.dgvUsers.Size = new System.Drawing.Size(811, 250);
+            this.dgvUsers.Size = new System.Drawing.Size(608, 203);
             this.dgvUsers.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(345, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(383, 256);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("MingLiU-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(75, 231);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 23);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Mange Users";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // contextMangeUsers
             // 
             this.contextMangeUsers.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMangeUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemShowDetails,
-            this.MenuItemAddUser});
+            this.toolStripSeparator1,
+            this.MenuItemAddUser,
+            this.toolStripEditUser,
+            this.toolStripDeleteUser,
+            this.toolStripChangePassword,
+            this.toolStripSeparator2,
+            this.toolStripcall,
+            this.toolStripSendMail});
             this.contextMangeUsers.Name = "contextMangeUsers";
-            this.contextMangeUsers.Size = new System.Drawing.Size(178, 56);
-            // 
-            // btnAddNewUser
-            // 
-            this.btnAddNewUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddNewUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.user;
-            this.btnAddNewUser.Location = new System.Drawing.Point(883, 266);
-            this.btnAddNewUser.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddNewUser.Name = "btnAddNewUser";
-            this.btnAddNewUser.Size = new System.Drawing.Size(67, 47);
-            this.btnAddNewUser.TabIndex = 3;
-            this.btnAddNewUser.UseVisualStyleBackColor = true;
-            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Users_2_400;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(333, 188);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.contextMangeUsers.Size = new System.Drawing.Size(185, 220);
             // 
             // MenuItemShowDetails
             // 
             this.MenuItemShowDetails.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.PersonDetails_32;
             this.MenuItemShowDetails.Name = "MenuItemShowDetails";
-            this.MenuItemShowDetails.Size = new System.Drawing.Size(177, 26);
+            this.MenuItemShowDetails.Size = new System.Drawing.Size(184, 26);
             this.MenuItemShowDetails.Text = "Show Details";
+            this.MenuItemShowDetails.Click += new System.EventHandler(this.MenuItemShowDetails_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
             // 
             // MenuItemAddUser
             // 
             this.MenuItemAddUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Add_New_User_32;
             this.MenuItemAddUser.Name = "MenuItemAddUser";
-            this.MenuItemAddUser.Size = new System.Drawing.Size(177, 26);
+            this.MenuItemAddUser.Size = new System.Drawing.Size(184, 26);
             this.MenuItemAddUser.Text = "Add New User";
             this.MenuItemAddUser.Click += new System.EventHandler(this.MenuItemAddUser_Click);
             // 
+            // toolStripEditUser
+            // 
+            this.toolStripEditUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.edit;
+            this.toolStripEditUser.Name = "toolStripEditUser";
+            this.toolStripEditUser.Size = new System.Drawing.Size(184, 26);
+            this.toolStripEditUser.Text = "Edit User";
+            // 
+            // toolStripDeleteUser
+            // 
+            this.toolStripDeleteUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.delete_friend;
+            this.toolStripDeleteUser.Name = "toolStripDeleteUser";
+            this.toolStripDeleteUser.Size = new System.Drawing.Size(184, 26);
+            this.toolStripDeleteUser.Text = "Delete User";
+            // 
+            // toolStripChangePassword
+            // 
+            this.toolStripChangePassword.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.key;
+            this.toolStripChangePassword.Name = "toolStripChangePassword";
+            this.toolStripChangePassword.Size = new System.Drawing.Size(184, 26);
+            this.toolStripChangePassword.Text = "Change Password";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
+            // 
+            // toolStripcall
+            // 
+            this.toolStripcall.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.call_32;
+            this.toolStripcall.Name = "toolStripcall";
+            this.toolStripcall.Size = new System.Drawing.Size(184, 26);
+            this.toolStripcall.Text = "Call";
+            // 
+            // toolStripSendMail
+            // 
+            this.toolStripSendMail.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.send_email_32;
+            this.toolStripSendMail.Name = "toolStripSendMail";
+            this.toolStripSendMail.Size = new System.Drawing.Size(184, 26);
+            this.toolStripSendMail.Text = "Send Mail";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Location = new System.Drawing.Point(259, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(287, 208);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("MingLiU-ExtB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(56, 188);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Mange Users";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Users_2_400;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 17);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(250, 153);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnAddNewUser
+            // 
+            this.btnAddNewUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddNewUser.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.user;
+            this.btnAddNewUser.Location = new System.Drawing.Point(662, 216);
+            this.btnAddNewUser.Name = "btnAddNewUser";
+            this.btnAddNewUser.Size = new System.Drawing.Size(50, 38);
+            this.btnAddNewUser.TabIndex = 3;
+            this.btnAddNewUser.UseVisualStyleBackColor = true;
+            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
+            // 
             // frmUserList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 594);
+            this.ClientSize = new System.Drawing.Size(774, 483);
             this.Controls.Add(this.btnAddNewUser);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvUsers);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmUserList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUserList";
             this.Load += new System.EventHandler(this.frmUserList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.contextMangeUsers.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -158,5 +218,12 @@
         private System.Windows.Forms.ContextMenuStrip contextMangeUsers;
         private System.Windows.Forms.ToolStripMenuItem MenuItemAddUser;
         private System.Windows.Forms.ToolStripMenuItem MenuItemShowDetails;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripEditUser;
+        private System.Windows.Forms.ToolStripMenuItem toolStripDeleteUser;
+        private System.Windows.Forms.ToolStripMenuItem toolStripChangePassword;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripcall;
+        private System.Windows.Forms.ToolStripMenuItem toolStripSendMail;
     }
 }

@@ -29,7 +29,6 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         }
          public void loadPersondata(clsPerson person)
         {
-          
             _Person = person;
             _Country = clsCountry.Find(_Person.NationalityCountryID);
             FillPersonInfo();

@@ -21,6 +21,12 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.User
             InitializeComponent();
             _User = new clsUser();
         }
+        public frmAddNewUser(int UserId)
+        {
+            InitializeComponent();
+            _User = clsUser.FindByUserId(UserId);
+            _FillUIFromData();
+        }
 
         private void tabPage1_Click(object sender , EventArgs e)
         {

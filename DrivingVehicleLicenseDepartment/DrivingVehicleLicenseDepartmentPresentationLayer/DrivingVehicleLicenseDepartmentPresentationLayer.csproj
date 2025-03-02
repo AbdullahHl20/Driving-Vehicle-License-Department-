@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationTypes\frmApplicationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationTypes\frmApplicationList.Designer.cs">
+      <DependentUpon>frmApplicationList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,10 +79,10 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMangePeople.cs">
+    <Compile Include="People\frmMangePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMangePeople.Designer.cs">
+    <Compile Include="People\frmMangePeople.Designer.cs">
       <DependentUpon>frmMangePeople.cs</DependentUpon>
     </Compile>
     <Compile Include="People\Controls\ctrlFilterPerson.cs">
@@ -120,7 +126,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMangePeople.resx">
+    <EmbeddedResource Include="People\frmMangePeople.resx">
       <DependentUpon>frmMangePeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrlFilterPerson.resx">
@@ -223,6 +229,11 @@
   <ItemGroup>
     <Content Include="Images\Female 512.png" />
     <Content Include="Images\Male 512.png" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\delete-friend.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg" />
     <None Include="Resources\account_settings 64.png" />
     <None Include="Resources\DVLD Logo.png" />
     <None Include="Resources\Password 32.png" />

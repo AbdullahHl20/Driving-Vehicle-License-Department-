@@ -7,15 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes;
+using DrivingVehicleLicenseDepartmentPresentationLayer.Login;
 using DrivingVehicleLicenseDepartmentPresentationLayer.User;
 
 namespace DrivingVehicleLicenseDepartmentPresentationLayer
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+
+        private frmLogin _frmLogin;
+        public frmMain(frmLogin frmLogin)
         {
             InitializeComponent();
+            _frmLogin = frmLogin;   
+
         }
 
         private void peopleToolStripMenuItem_Click(object sender , EventArgs e)
@@ -29,6 +35,18 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         {
             frmUserList frmuserlist = new frmUserList();
             frmuserlist.ShowDialog();
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmLogin.Show();
+            this.Close();
+        }
+
+        private void MenuItemMangeApplicationtype_Click(object sender, EventArgs e)
+        {
+            frmApplicationList frmApplicationList = new frmApplicationList();
+            frmApplicationList.ShowDialog();
         }
     }
 }

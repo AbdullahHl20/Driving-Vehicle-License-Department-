@@ -44,5 +44,11 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.User
         {
             _showAddNewUserForm();
         }
+
+        private void MenuItemShowDetails_Click(object sender, EventArgs e)
+        {
+            frmAddNewUser frmAddNewUser = new frmAddNewUser((int)dgvUsers.CurrentRow.Cells["UserId"].Value);
+            frmAddNewUser.ShowDialog();
+        }
     }
 }

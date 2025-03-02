@@ -78,9 +78,8 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
         private bool _UpdateUser()
         {
-            //return clsPersonData.UpdatePerson(this.PersonId , this.NationalNo , this.FirstName , this.LastName , this.SecondName , this.ThirdName ,
-            //                this.DateOfBirth , this.Gendor , this.Address , this.Phone , this.Email , this.NationalityCountryID , this.ImagePath);
-            return false;
+            return clsUserData.UpdateUser(this.PersonId , this.UserId,this.UserName, this.PassWord, this.IsActive);
+            
 
         }
         public static DataTable GetAllUsers()
@@ -91,7 +90,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         public static clsUser FindByUserNameAndPassword(string UserName, string PassWord)
         {
            
-           int UserId = 0 , PersonId =  0; bool IsActive=false;
+           int UserId = 0 , PersonId =  0; bool IsActive = false;
 
            bool isfound = clsUserData.FindByUserNameAndPassword(UserName, PassWord, ref UserId, ref PersonId,ref IsActive);
 
@@ -99,6 +98,18 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
                 return new clsUser(UserId, PersonId, UserName, PassWord, IsActive);
             else
                return null;
+        }
+
+        public static clsUser FindByUserId(int UserId)
+        {
+            int  PersonId = 0; bool IsActive = false;
+            string UserName = "", PassWord = "";    
+            bool isfound = clsUserData.FindByUserId(UserName, PassWord, UserId, ref PersonId, ref IsActive);
+
+            if (isfound == true)
+                return new clsUser(UserId, PersonId, UserName, PassWord, IsActive);
+            else
+                return null;
         }
 
 

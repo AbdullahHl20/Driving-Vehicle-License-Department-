@@ -76,6 +76,45 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
         }
         #endregion
         #region GetAllUsers
+        public static bool FindByUserId(string UserName, string PassWord, int UserId, ref int PersonId, ref bool IsActive) 
+        {
+
+            bool isFound = false;
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+
+                const string cmd = "select * from Users where UserId=@UserId";
+                SqlCommand sqlCommand = new SqlCommand(cmd, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@UserId", UserId);
+              
+                sqlConnection.Open();
+
+                SqlDataReader DataReader = sqlCommand.ExecuteReader();
+
+
+                if (DataReader.Read())
+                {
+                    isFound  =  true;
+                    UserId   =  (int)DataReader["UserId"];
+                    PersonId =  (int)DataReader["PersonId"];
+                    IsActive =  (bool)DataReader["IsActive"];
+                    PassWord =  (string)DataReader["Password"];
+                    UserName =  (string)DataReader["UserName"];
+
+                }
+                sqlConnection.Close();
+
+
+                return isFound;
+
+            }
+            catch (Exception ex)
+            {
+                return isFound;
+            }
+        }
         public static bool FindByUserNameAndPassword(string UserName, string PassWord, ref int UserId, ref int PersonId, ref bool IsActive)
         {
 
@@ -87,8 +126,8 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 
                 const string cmd = "select * from Users where UserName=@UserName and PassWord=@PassWord ";
                 SqlCommand sqlCommand = new SqlCommand(cmd, sqlConnection);
-                sqlCommand.Parameters.Add("@UserName", UserName);
-                sqlCommand.Parameters.Add("@PassWord", PassWord);
+                sqlCommand.Parameters.AddWithValue("@UserName", UserName);
+                sqlCommand.Parameters.AddWithValue("@PassWord", PassWord);
                 sqlConnection.Open();
                 
                 SqlDataReader DataReader = sqlCommand.ExecuteReader();

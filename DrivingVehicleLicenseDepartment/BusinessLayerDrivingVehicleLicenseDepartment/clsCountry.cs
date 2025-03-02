@@ -28,7 +28,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         public static clsCountry Find(int CountryID)
         {
            
-             string  CountryName = "";
+            string  CountryName = "";
             bool IsFound = clsCountryData.Find(CountryID , ref CountryName);
             if (IsFound) 
             {
