@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes;
 using DrivingVehicleLicenseDepartmentPresentationLayer.Login;
+using DrivingVehicleLicenseDepartmentPresentationLayer.TestType;
 using DrivingVehicleLicenseDepartmentPresentationLayer.User;
 
 namespace DrivingVehicleLicenseDepartmentPresentationLayer
@@ -47,6 +48,13 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         {
             frmApplicationList frmApplicationList = new frmApplicationList();
             frmApplicationList.ShowDialog();
+        }
+
+        private void toolStripMangeTestType_Click(object sender , EventArgs e)
+        {
+            frmTestTypeList frmTestTypeList = new frmTestTypeList();    
+
+            frmTestTypeList.ShowDialog();
         }
     }
 }

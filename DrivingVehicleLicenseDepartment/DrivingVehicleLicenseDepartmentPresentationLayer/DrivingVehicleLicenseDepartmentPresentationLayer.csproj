@@ -61,6 +61,13 @@
     <Compile Include="ApplicationTypes\frmApplicationList.Designer.cs">
       <DependentUpon>frmApplicationList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationTypes\frmUpdateApplictionType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationTypes\frmUpdateApplictionType.Designer.cs">
+      <DependentUpon>frmUpdateApplictionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clsMessgaes.cs" />
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +112,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestType\frmTestTypeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestType\frmTestTypeList.Designer.cs">
+      <DependentUpon>frmTestTypeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestType\frmUpdateTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestType\frmUpdateTestType.Designer.cs">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\frmAddNewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +138,9 @@
     </Compile>
     <EmbeddedResource Include="ApplicationTypes\frmApplicationList.resx">
       <DependentUpon>frmApplicationList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationTypes\frmUpdateApplictionType.resx">
+      <DependentUpon>frmUpdateApplictionType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -146,6 +168,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestType\frmTestTypeList.resx">
+      <DependentUpon>frmTestTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestType\frmUpdateTestType.resx">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmAddNewUser.resx">
       <DependentUpon>frmAddNewUser.cs</DependentUpon>
@@ -232,6 +260,15 @@
   <ItemGroup>
     <Content Include="Images\Female 512.png" />
     <Content Include="Images\Male 512.png" />
+    <None Include="Resources\TestType 512.png" />
+    <None Include="Resources\Save 32.png" />
+    <None Include="Resources\Close 32.png" />
+    <None Include="Resources\edit 321.png" />
+    <None Include="Resources\TestType 32.png" />
+    <None Include="Resources\Application Types 64.png" />
+    <None Include="Resources\ApplicationType.png" />
+    <None Include="Resources\Manage Applications 32.png" />
+    <None Include="Resources\Applications 64.png" />
     <None Include="Resources\key.png" />
     <None Include="Resources\delete-friend.png" />
     <None Include="Resources\delete.png" />

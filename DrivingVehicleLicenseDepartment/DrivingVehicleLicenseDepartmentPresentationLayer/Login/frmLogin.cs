@@ -32,11 +32,16 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if ( !CheckData() )
+                return;
 
             _User = clsUser.FindByUserNameAndPassword(txtUserName.Text,txtPassword.Text);
 
             if (_User == null)
-                return;
+            {
+                clsMessgaes.ShowError("invald UserName / Password");
+                return; 
+            }
 
             if (ChbRemberMe.Checked && !File.Exists(_filePath))
                 _writeUserInfoInFile();
@@ -91,6 +96,22 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.Login
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
+
+        private bool CheckData()
+        {
+            if ( string.IsNullOrEmpty( txtUserName.Text)) 
+            {
+                clsMessgaes.ShowError("Palese Input UserName");
+                return false;
+            }
+            if ( string.IsNullOrEmpty( txtPassword.Text))
+            {
+                clsMessgaes.ShowError("Palese Input Password");
+                return false; 
+            }
+
+            return true;
+        } 
 
     }
 

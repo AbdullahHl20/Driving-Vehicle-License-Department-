@@ -34,8 +34,14 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes
             dgvApplicationType.Columns[1].Width = 400;
 
             dgvApplicationType.Columns[2].HeaderText = "Fees";
-            dgvApplicationType.Columns[2].Width = 90;
+            dgvApplicationType.Columns[2].Width = 85;
         }
 
+        private void toolStripEditApplicationType_Click(object sender , EventArgs e)
+        {
+            frmUpdateTestType frmUpdateApplictionType = new frmUpdateApplictionType(Convert.ToInt32( dgvApplicationType.CurrentRow.Cells["ApplicationTypeID"].Value));
+            frmUpdateApplictionType.ShowDialog();
+            _FillGridview();
+        }
     }
 }
