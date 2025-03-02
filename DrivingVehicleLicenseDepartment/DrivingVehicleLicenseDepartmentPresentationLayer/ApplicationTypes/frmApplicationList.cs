@@ -24,8 +24,17 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes
         private void _FillGridview() 
         {
             _DataView = new DataView(clsApplicationType.GetAllApplicationsType());
+          
             dgvApplicationType.DataSource = _DataView;
 
+            dgvApplicationType.Columns[0].HeaderText = "ID";
+            dgvApplicationType.Columns[0].Width = 110;
+
+            dgvApplicationType.Columns[1].HeaderText = "Title";
+            dgvApplicationType.Columns[1].Width = 400;
+
+            dgvApplicationType.Columns[2].HeaderText = "Fees";
+            dgvApplicationType.Columns[2].Width = 100;
         }
 
     }
