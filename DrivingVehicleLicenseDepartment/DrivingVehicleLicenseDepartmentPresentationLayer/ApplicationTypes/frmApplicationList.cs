@@ -28,7 +28,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes
             dgvApplicationType.DataSource = _DataView;
 
             dgvApplicationType.Columns[0].HeaderText = "ID";
-            dgvApplicationType.Columns[0].Width = 110;
+            dgvApplicationType.Columns[0].Width = 80;
 
             dgvApplicationType.Columns[1].HeaderText = "Title";
             dgvApplicationType.Columns[1].Width = 400;
