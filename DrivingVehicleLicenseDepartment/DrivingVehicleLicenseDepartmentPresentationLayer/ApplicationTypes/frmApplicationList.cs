@@ -34,7 +34,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes
             dgvApplicationType.Columns[1].Width = 400;
 
             dgvApplicationType.Columns[2].HeaderText = "Fees";
-            dgvApplicationType.Columns[2].Width = 100;
+            dgvApplicationType.Columns[2].Width = 90;
         }
 
     }
