@@ -73,3 +73,4 @@ C:\Users\abdullah\source\repos\Driving-Vehicle-License-Department-\DrivingVehicl
 C:\Users\abdullah\source\repos\Driving-Vehicle-License-Department-\DrivingVehicleLicenseDepartment\DrivingVehicleLicenseDepartmentPresentationLayer\bin\Debug\DevExpress.Pdf.v22.2.Core.xml
 C:\Users\abdullah\source\repos\Driving-Vehicle-License-Department-\DrivingVehicleLicenseDepartment\DrivingVehicleLicenseDepartmentPresentationLayer\bin\Debug\DevExpress.Pdf.v22.2.Drawing.xml
 C:\Users\abdullah\source\repos\Driving-Vehicle-License-Department-\DrivingVehicleLicenseDepartment\DrivingVehicleLicenseDepartmentPresentationLayer\obj\Debug\DrivingVehicleLicenseDepartmentPresentationLayer.exe.licenses
+C:\Users\abdullah\source\repos\Driving-Vehicle-License-Department-\DrivingVehicleLicenseDepartment\DrivingVehicleLicenseDepartmentPresentationLayer\obj\Debug\DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes.frmApplicationList.resources

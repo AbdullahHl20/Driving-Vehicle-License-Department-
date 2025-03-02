@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgvApplicationType = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationType)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvApplicationType
+            // 
+            this.dgvApplicationType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApplicationType.Location = new System.Drawing.Point(93, 278);
+            this.dgvApplicationType.Name = "dgvApplicationType";
+            this.dgvApplicationType.Size = new System.Drawing.Size(611, 263);
+            this.dgvApplicationType.TabIndex = 0;
+            // 
+            // frmApplicationList
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 553);
+            this.Controls.Add(this.dgvApplicationType);
+            this.Name = "frmApplicationList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmApplicationList";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicationType)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvApplicationType;
     }
 }
