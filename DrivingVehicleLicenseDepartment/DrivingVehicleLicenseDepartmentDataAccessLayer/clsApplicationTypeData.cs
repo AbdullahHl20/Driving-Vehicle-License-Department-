@@ -11,7 +11,7 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 {
     public class clsApplicationTypeData
     {
-        public static bool FindById(int Applicationid , ref string ApplicationTypeTitle,  ref double ApplicationTypePrice)
+        public static bool FindById(int Applicationid, ref string ApplicationTypeTitle, ref double ApplicationTypePrice)
         {
             bool isfound = false;
             const string sqlQuery = " select ApplicationTypeTitle ,ApplicationFees from ApplicationTypes where ApplicationTypeID =@ApplicationTypeID";
@@ -19,11 +19,11 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
             try
             {
                 SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-                SqlCommand cmd = new SqlCommand(sqlQuery,sqlConnection);
-                cmd.Parameters.AddWithValue("@ApplicationTypeID" , Applicationid);
+                SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+                cmd.Parameters.AddWithValue("@ApplicationTypeID", Applicationid);
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader = cmd.ExecuteReader();
-                if(sqlDataReader.Read()) 
+                if (sqlDataReader.Read())
                 {
                     isfound = true;
                     ApplicationTypeTitle = (string)sqlDataReader["ApplicationTypeTitle"];
@@ -33,28 +33,28 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
                 sqlConnection.Close();
 
                 return isfound;
-                
+
             }
-            catch 
+            catch
             {
                 return isfound;
             }
         }
 
-        public static bool update(int ApplicationTypeId ,  string ApplicationTypeTitle , double ApplicationTypePrice)
+        public static bool update(int ApplicationTypeId, string ApplicationTypeTitle, double ApplicationTypePrice)
         {
             bool isUpdated = false;
             const string sqlQuery = " UPDATE ApplicationTypes SET  ApplicationTypeTitle =@ApplicationTypeTitle , ApplicationFees =@ApplicationTypePrice WHERE  ApplicationTypeID =@ApplicationTypeID ";
             try
             {
                 SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-                SqlCommand cmd = new SqlCommand(sqlQuery , sqlConnection);
-                cmd.Parameters.AddWithValue("@ApplicationTypeID" , ApplicationTypeId);
-                cmd.Parameters.AddWithValue("@ApplicationTypeTitle" , ApplicationTypeTitle);
-                cmd.Parameters.AddWithValue("@ApplicationTypePrice" , ApplicationTypePrice);
+                SqlCommand cmd = new SqlCommand(sqlQuery, sqlConnection);
+                cmd.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeId);
+                cmd.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
+                cmd.Parameters.AddWithValue("@ApplicationTypePrice", ApplicationTypePrice);
                 sqlConnection.Open();
                 isUpdated = cmd.ExecuteNonQuery() > 0;
-              
+
 
                 sqlConnection.Close();
 
@@ -64,29 +64,29 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
             {
                 return isUpdated;
             }
-            }
-            public static DataTable GetAllApplicationsType()
+        }
+        public static DataTable GetAllApplicationsType()
         {
             const string select = "select * from ApplicationTypes";
             try
             {
                 SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-                
+
                 SqlCommand sqlCommand = new SqlCommand(select, sqlConnection);
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 DataTable dataTable = new DataTable();
-                
+
                 dataTable.Load(sqlDataReader);
 
                 sqlConnection.Close();
                 return dataTable;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return null;
             }
-            
+
         }
     }
 }

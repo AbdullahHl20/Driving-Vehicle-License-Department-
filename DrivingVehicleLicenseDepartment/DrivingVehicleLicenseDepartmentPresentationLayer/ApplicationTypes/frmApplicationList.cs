@@ -39,7 +39,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes
 
         private void toolStripEditApplicationType_Click(object sender , EventArgs e)
         {
-            frmUpdateTestType frmUpdateApplictionType = new frmUpdateApplictionType(Convert.ToInt32( dgvApplicationType.CurrentRow.Cells["ApplicationTypeID"].Value));
+            frmUpdateApplictionType frmUpdateApplictionType = new frmUpdateApplictionType(Convert.ToInt32( dgvApplicationType.CurrentRow.Cells["ApplicationTypeID"].Value));
             frmUpdateApplictionType.ShowDialog();
             _FillGridview();
         }

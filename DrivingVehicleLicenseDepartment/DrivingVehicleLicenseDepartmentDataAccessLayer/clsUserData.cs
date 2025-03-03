@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 {
@@ -21,11 +17,11 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
                 const string cmd = "UPDATE [dbo].[Users]   SET [PersonID] =@PersonId,[UserName] =@UserName " +
                     "  ,[Password] =@Password    ,[IsActive] = @IsActive WHERE UserID =@UserId ";
                 SqlCommand sqlCommand = new SqlCommand(cmd , sqlConnection);
-                sqlCommand.Parameters.Add("@UserName" , UserName);
-                sqlCommand.Parameters.Add("@PassWord" , PassWord);
-                sqlCommand.Parameters.Add("@PersonId" , PersonId);
-                sqlCommand.Parameters.Add("@UserId" , UserId);
-                sqlCommand.Parameters.Add("@IsActive" , IsActive);
+                sqlCommand.Parameters.AddWithValue("@UserName" , UserName);
+                sqlCommand.Parameters.AddWithValue("@PassWord" , PassWord);
+                sqlCommand.Parameters.AddWithValue("@PersonId" , PersonId);
+                sqlCommand.Parameters.AddWithValue("@UserId" , UserId);
+                sqlCommand.Parameters.AddWithValue("@IsActive" , IsActive);
                 sqlConnection.Open();
 
                 bool isUpdated = sqlCommand.ExecuteNonQuery() > 0;

@@ -1,6 +1,6 @@
 ﻿namespace DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes
 {
-    partial class frmUpdateTestType
+    partial class frmUpdateApplictionType
     {
         /// <summary>
         /// Required designer variable.

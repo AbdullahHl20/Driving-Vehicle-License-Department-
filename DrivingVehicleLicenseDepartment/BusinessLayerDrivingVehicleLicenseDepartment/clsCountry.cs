@@ -10,16 +10,19 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 {
     public class clsCountry
     {
+
+        #region Fields
+        public int CountryId { set; get; }
+        public string CountryName { set; get; }
+        #endregion 
+
         public clsCountry() { }
         public clsCountry(int CountryId, string CountryName) 
         { 
             this.CountryId = CountryId;
             this.CountryName = CountryName;
         }
-
-        public int CountryId { set; get; }
-        public string CountryName { set; get; }
-
+        
         public static DataTable GetAllCountries()
         {
             return clsCountryData.GetAllCountries();
@@ -27,7 +30,6 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
 
         public static clsCountry Find(int CountryID)
         {
-           
             string  CountryName = "";
             bool IsFound = clsCountryData.Find(CountryID , ref CountryName);
             if (IsFound) 

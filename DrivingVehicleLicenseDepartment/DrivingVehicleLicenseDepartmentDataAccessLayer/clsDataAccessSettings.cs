@@ -8,6 +8,6 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
 {
     class clsDataAccessSettings
     {
-        public static string ConnectionString = @"server=abdullah\MSSQLSERVER22;User id=abdullah;database=DVLD;Integrated Security=True;";
+        public static string ConnectionString = @"server=Dterminal105\MSSQLSERVER2022;User id=ssdev\abdullah;database=DVLD;Integrated Security=True;";
     }
 }

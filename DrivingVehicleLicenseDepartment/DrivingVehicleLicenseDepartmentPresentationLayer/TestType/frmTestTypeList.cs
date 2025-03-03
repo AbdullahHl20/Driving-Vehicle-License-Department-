@@ -15,21 +15,22 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.TestType
     {
 
         private DataView _dataViewTestType;
+      
         public frmTestTypeList()
         {
             InitializeComponent();
-            _dataViewTestType = new DataView(clsTestType.GetAllTestType()) ;
+           
             _FillGrid();
         }
 
         private void _FillGrid()
         {
+            _dataViewTestType = new DataView(clsTestType.GetAllTestType());
             dvgTestType.DataSource = _dataViewTestType;
             dvgTestType.Columns[0].Width = 30;
             dvgTestType.Columns[1].Width = 130;
             dvgTestType.Columns[2].Width = 350;
             dvgTestType.Columns[3].Width = 80;
-
 
         }
 
@@ -40,7 +41,10 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer.TestType
 
         private void toolStripEditTestType_Click(object sender , EventArgs e)
         {
+            frmUpdateTestType frmUpdateTestType = new frmUpdateTestType(Convert.ToInt32(dvgTestType.CurrentRow.Cells["TestTypeID"].Value));
 
+            frmUpdateTestType.ShowDialog();
+            _FillGrid();
         }
     }
 }

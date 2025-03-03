@@ -13,6 +13,10 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
         public static void ShowError(string introdction , string Caption = "Error")
         {
             MessageBox.Show(introdction , Caption , MessageBoxButtons.OK , MessageBoxIcon.Error);
+        } 
+        public static void Showinfo(string introdction , string Caption = "Info")
+        {
+            MessageBox.Show(introdction , Caption , MessageBoxButtons.OK , MessageBoxIcon.Information);
         }
     }
 }

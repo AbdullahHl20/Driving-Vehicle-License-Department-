@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace DrivingVehicleLicenseDepartmentPresentationLayer.ApplicationTypes
 {
-    public partial class frmUpdateTestType : Form
+    public partial class frmUpdateApplictionType : Form
     {
 
         private clsApplicationType _ApplicationType;
-        public frmUpdateTestType(int ApplivationTypeId)
+        public frmUpdateApplictionType(int ApplivationTypeId)
         {
             InitializeComponent();
             _GetApplicationTypeInfo(ApplivationTypeId);
