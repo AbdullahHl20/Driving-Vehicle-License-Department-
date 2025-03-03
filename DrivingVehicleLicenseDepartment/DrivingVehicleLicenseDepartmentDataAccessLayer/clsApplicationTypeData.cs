@@ -44,7 +44,7 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
         public static bool update(int ApplicationTypeId, string ApplicationTypeTitle, double ApplicationTypePrice)
         {
             bool isUpdated = false;
-            const string sqlQuery = " UPDATE ApplicationTypes SET  ApplicationTypeTitle =@ApplicationTypeTitle , ApplicationFees =@ApplicationTypePrice WHERE  ApplicationTypeID =@ApplicationTypeID ";
+            const string sqlQuery = "UPDATE ApplicationTypes SET ApplicationTypeTitle =@ApplicationTypeTitle,ApplicationFees=@ApplicationTypePrice WHERE ApplicationTypeID=@ApplicationTypeID ";
             try
             {
                 SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);

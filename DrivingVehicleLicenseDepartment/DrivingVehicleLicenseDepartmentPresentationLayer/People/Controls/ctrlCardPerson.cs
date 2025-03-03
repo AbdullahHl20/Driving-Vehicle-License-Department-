@@ -1,12 +1,5 @@
 ﻿using BusinessLayerDrivingVehicleLicenseDepartment;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DrivingVehicleLicenseDepartmentPresentationLayer.People;
 
@@ -14,7 +7,6 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
 {
     public partial class ctrlCardPerson : UserControl
     {
-
         private clsPerson _Person;
         private clsCountry _Country;
         public ctrlCardPerson()
@@ -27,7 +19,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             InitializeComponent();
             LoadPersonInfo(NationalNo);
         }
-         public void loadPersondata(clsPerson person)
+        public void loadPersondata(clsPerson person)
         {
             _Person = person;
             _Country = clsCountry.Find(_Person.NationalityCountryID);
@@ -63,19 +55,19 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             lblGendor.Text = _Person.Gendor == 0 ? "Male" : "Female";
             lblNationalNo.Text = _Person.NationalNo;
             lblDateOfBirth.Text = _Person.DateOfBirth.ToString("dd/MM/yyyy");
-            lblPersonID.Text = Convert.ToString( _Person.PersonId);
+            lblPersonID.Text = Convert.ToString(_Person.PersonId);
             llEditPersonInfo.Enabled = true;
             lblCountry.Text = _Country.CountryName;
-            if ( !string.IsNullOrEmpty(_Person.ImagePath) )
+            if (!string.IsNullOrEmpty(_Person.ImagePath))
                 pbPersonImage.Load(_Person.ImagePath);
         }
         public void LoadPersonInfo(string NationalNo)
         {
             _Person = clsPerson.Find(NationalNo);
-            if ( _Person == null )
+            if (_Person == null)
             {
                 _ResetPersonInfo();
-                MessageBox.Show("No Person with National No. = " + NationalNo.ToString() , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                clsMessgaes.ShowError("No Person with National No. = " + NationalNo.ToString());
                 return;
             }
             _Country = clsCountry.Find(_Person.NationalityCountryID);
@@ -89,7 +81,7 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             if (_Person == null)
             {
                 _ResetPersonInfo();
-                MessageBox.Show("No Person with National No. = " + Personid.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsMessgaes.ShowError("No Person with National No. = " + Personid.ToString());
                 return;
             }
             _Country = clsCountry.Find(_Person.NationalityCountryID);
@@ -97,15 +89,13 @@ namespace DrivingVehicleLicenseDepartmentPresentationLayer
             FillPersonInfo();
         }
 
-        private void llEditPersonInfo_LinkClicked(object sender , LinkLabelLinkClickedEventArgs e)
+        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
             frmAddUpdatePerson frmAddUpdatePerson = new frmAddUpdatePerson(_Person.NationalNo);
-
             frmAddUpdatePerson.ShowDialog();
         }
 
-        public int GetPersonid() 
+        public int GetPersonid()
         {
             return _Person.PersonId;
         }

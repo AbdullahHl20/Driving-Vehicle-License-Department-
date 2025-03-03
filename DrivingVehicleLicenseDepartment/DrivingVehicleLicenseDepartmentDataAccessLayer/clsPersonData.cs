@@ -297,20 +297,21 @@ namespace DrivingVehicleLicenseDepartmentDataAccessLayer
         {
             SqlConnection sqlConnection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string selectQuery = "SELECT [PersonID] PersonID ," +
+           string  selectQuery = "SELECT [PersonID] PersonID," +
                                     "[NationalNo] NationalNo ," +
                                     "[FirstName] FirstName," +
                                     "[SecondName] SecondName," +
                                     "[ThirdName] ThirdName," +
                                     "[LastName] LastName," +
                                     "[DateOfBirth] DateOfBirth," +
-                                    " CASE [Gendor] WHEN 0 THEN  'Male' ELSE 'Female' END Gendor," +
+                                    "CASE [Gendor] WHEN 0 THEN 'Male' ELSE 'Female' END Gendor," +
                                     "[Address] Address," +
                                     "[Phone] Phone," +
                                     "[Email] Email," +
                                     "[NationalityCountryID] AS NationalityCountryID," +
                                     "[ImagePath] AS ImagePath " +
                                     "FROM  [People]";
+
             SqlCommand cmd = new SqlCommand(selectQuery , sqlConnection);
 
             try

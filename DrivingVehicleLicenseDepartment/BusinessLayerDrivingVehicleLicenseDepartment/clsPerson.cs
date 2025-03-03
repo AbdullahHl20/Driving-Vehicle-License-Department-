@@ -97,7 +97,7 @@ namespace BusinessLayerDrivingVehicleLicenseDepartment
         public static clsPerson Find(int PersonID)
         {
 
-             string NationalNo= "" , FirstName = "", SecondName = "", ThirdName = "", LastName = "", Email = "", Phone = "", Address = "", ImagePath = "";
+            string NationalNo= "" , FirstName = "", SecondName = "", ThirdName = "", LastName = "", Email = "", Phone = "", Address = "", ImagePath = "";
             DateTime DateOfBirth = DateTime.Now;
             int  NationalityCountryID = -1;
             short Gendor = 0;

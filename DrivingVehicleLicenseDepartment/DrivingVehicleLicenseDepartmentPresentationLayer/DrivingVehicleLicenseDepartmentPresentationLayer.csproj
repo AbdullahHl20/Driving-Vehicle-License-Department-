@@ -260,6 +260,18 @@
   <ItemGroup>
     <Content Include="Images\Female 512.png" />
     <Content Include="Images\Male 512.png" />
+    <None Include="Resources\Detain 512.png" />
+    <None Include="Resources\Renew Driving License 32.png" />
+    <None Include="Resources\Retake Test 32.png" />
+    <None Include="Resources\Release Detained License 32.png" />
+    <None Include="Resources\Lost Driving License 32.png" />
+    <None Include="Resources\money 321.png" />
+    <None Include="Resources\money 32.png" />
+    <None Include="Resources\Driver License 48.png" />
+    <None Include="Resources\Manage Applications 321.png" />
+    <None Include="Resources\Local 32.png" />
+    <None Include="Resources\International 32.png" />
+    <None Include="Resources\New Driving License 32.png" />
     <None Include="Resources\TestType 512.png" />
     <None Include="Resources\Save 32.png" />
     <None Include="Resources\Close 32.png" />
@@ -273,7 +285,9 @@
     <None Include="Resources\delete-friend.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\edit.png" />
-    <None Include="Resources\360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg" />
+    <None Include="Resources\ApplicationType1.png" />
+    <None Include="Resources\ApplicationTitle.png" />
+    <Content Include="Resources\Backgroundlogin.png" />
     <None Include="Resources\account_settings 64.png" />
     <None Include="Resources\DVLD Logo.png" />
     <None Include="Resources\Password 32.png" />
