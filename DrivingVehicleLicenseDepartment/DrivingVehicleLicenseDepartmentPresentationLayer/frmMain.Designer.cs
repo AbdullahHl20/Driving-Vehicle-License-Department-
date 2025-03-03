@@ -43,13 +43,13 @@
             this.toolStripRetakeTest = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMangeApplication = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDetianlicences = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItemMangeApplicationtype = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMangeTestType = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MangeUserMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripDetianlicences = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,10 +72,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.DVLD_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 39);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 349);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1322, 532);
+            this.pictureBox1.Size = new System.Drawing.Size(1322, 222);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -184,6 +184,18 @@
             this.toolStripMangeApplication.Size = new System.Drawing.Size(206, 26);
             this.toolStripMangeApplication.Text = "Mange Application";
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(203, 6);
+            // 
+            // toolStripDetianlicences
+            // 
+            this.toolStripDetianlicences.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Detain_512;
+            this.toolStripDetianlicences.Name = "toolStripDetianlicences";
+            this.toolStripDetianlicences.Size = new System.Drawing.Size(206, 26);
+            this.toolStripDetianlicences.Text = "Detian licences";
+            // 
             // MenuItemMangeApplicationtype
             // 
             this.MenuItemMangeApplicationtype.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.ApplicationType1;
@@ -222,18 +234,6 @@
             this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
             this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
             this.accountSettingsToolStripMenuItem.Text = "Account Settings";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(203, 6);
-            // 
-            // toolStripDetianlicences
-            // 
-            this.toolStripDetianlicences.Image = global::DrivingVehicleLicenseDepartmentPresentationLayer.Properties.Resources.Detain_512;
-            this.toolStripDetianlicences.Name = "toolStripDetianlicences";
-            this.toolStripDetianlicences.Size = new System.Drawing.Size(206, 26);
-            this.toolStripDetianlicences.Text = "Detian licences";
             // 
             // frmMain
             // 

@@ -68,6 +68,12 @@
       <DependentUpon>frmUpdateApplictionType.cs</DependentUpon>
     </Compile>
     <Compile Include="clsMessgaes.cs" />
+    <Compile Include="Driver licence\frmAddNewLocalDrivingLicnece.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Driver licence\frmAddNewLocalDrivingLicnece.Designer.cs">
+      <DependentUpon>frmAddNewLocalDrivingLicnece.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ApplicationTypes\frmUpdateApplictionType.resx">
       <DependentUpon>frmUpdateApplictionType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Driver licence\frmAddNewLocalDrivingLicnece.resx">
+      <DependentUpon>frmAddNewLocalDrivingLicnece.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
